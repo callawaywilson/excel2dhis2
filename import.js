@@ -29,8 +29,9 @@ function parseSheet(parserSheet, sheet) {
   for (var rowNum = parserSheet.startRow; rowNum <= lastRow; rowNum++) {
     var rowData = [];
     for (var i = 0; i <  parserRow.mappings.length; i++) {
-      rowData.push(parseMapping(parserRow.mappings[i], 
-        parserRow, sheet, rowNum, rowData));
+      var mappingData = parseMapping(parserRow.mappings[i], 
+        parserRow, sheet, rowNum, rowData);
+      if (mappingData && mappingData.value) rowData.push(mappingData);
     }
     data = data.concat(rowData.filter(function(d) {return d && d.dataElement}));
   }

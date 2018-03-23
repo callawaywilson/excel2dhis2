@@ -43,6 +43,41 @@ module.exports = function(_params) {
             {
               column: "G",
               dataElement: "iB2QByaVoiB"
+            },
+            {
+              column: "H",
+              dataElement: "L36uJKin4xW"
+            },
+            {
+              column: "I",
+              dataElement: "tYEOhAimtsQ",
+              mapping: function(value, row) {
+                return /(\d+)/.exec(value)[1]
+              }
+            },
+            {
+              column: "I",
+              dataElement: "mPMdsgLyqev",
+              mapping: function(value, row) {
+                var sex = "";
+                if (/F/i.test(value)) sex += 'f';
+                if (/M/i.test(value)) sex += 'm';
+                return sex;
+              }
+            },
+            {
+              column: "J",
+              dataElement: "vbohuRxSxDE"
+            },
+            {
+              column: "K",
+              dataElement: "d7TTTQDQSEL",
+              categoryOptionCombo: "XxPgNmIyWEx"
+            },
+            {
+              column: "L",
+              dataElement: "d7TTTQDQSEL",
+              categoryOptionCombo: "H8q1t9ex8OR"
             }
           ]
         }
