@@ -1,0 +1,15 @@
+{
+  "name": "excel2dhis2",
+  "version": "1.0.0",
+  "description": "Import logic to transform Excel XLSX documents to DHIS2 import files",
+  "main": "import.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam Wilson <adam@callawaywilson.com>",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "xlsx": "^0.12.6"
+  }
+}
