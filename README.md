@@ -1,4 +1,4 @@
-## How to execute mapping
+## Usage
 
 ```
 $ node import -p parsers/temf.js -o orgunits.json -t 2018 temf_file.xlsx
@@ -9,7 +9,7 @@ Options:
   - `-p`, `--parser` - Parser file (see defintion below) to load
   - `-o`, `--orgUnits` - Org Units file (export from DHIS2 in JSON)
   - `-t`, `--period` - Period to use for imports (passed to parser)
-  
+
 
 ## Document Mapping
 
@@ -18,13 +18,13 @@ Options:
 ```javascript
 {
   params: {
-    year: null,
+    period: null,
     orgUnits: null
   },
   definition: {
     defaults: {
       categoryOptionCombo: "XXXXXXXXX",
-      attributeOptionCombo: "XXXXXXXXX",
+      attributeOptionCombo: "XXXXXXXXX"
     }
   },
   sheets: [
