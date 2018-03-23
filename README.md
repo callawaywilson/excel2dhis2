@@ -64,19 +64,19 @@ Options:
 ### Process
 
   1. Execute import script on Excel file with parameters:
-      a. year
-      b. reference to org mappings
+      1. year
+      2. reference to org mappings
   2. Populate `params` and place global in execution to reference.
   3. Place `definition` into global.
   4. Iterate over `sheets`:
-      a. Find sheet matching names/regexes in `names`.
-      b. Iterate over `mappings` in row.sheet, starting at startRow:
-          i. Take value in column `column`
-          ii. Execute `mapping` function if present (pass in value and row)
-          iii. Assign `dataElement`, `categoryOptionCombo`, `attributeOptionCombo`
-          iv. Assign `period` and `orgUnit` if has dataElement
-          v. Place in `row` values and continue to next mapping
-      c. Store row output dataElements for JSON output
+      1. Find sheet matching names/regexes in `names`.
+      2. Iterate over `mappings` in row.sheet, starting at startRow:
+          1. Take value in column `column`
+          2. Execute `mapping` function if present (pass in value and row)
+          3. Assign `dataElement`, `categoryOptionCombo`, `attributeOptionCombo`
+          4. Assign `period` and `orgUnit` if has dataElement
+          5. Place in `row` values and continue to next mapping
+      3. Store row output dataElements for JSON output
   5. Output JSON of all dataElements
 
 
