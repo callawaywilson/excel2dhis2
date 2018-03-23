@@ -1,3 +1,16 @@
+## How to execute mapping
+
+```
+$ node import -p parsers/temf.js -o orgunits.json -t 2018 temf_file.xlsx
+```
+
+Options:
+
+  - `-p`, `--parser` - Parser file (see defintion below) to load
+  - `-o`, `--orgUnits` - Org Units file (export from DHIS2 in JSON)
+  - `-t`, `--period` - Period to use for imports (passed to parser)
+  
+
 ## Document Mapping
 
 ### Definitions
