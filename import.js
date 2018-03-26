@@ -17,8 +17,8 @@ for (var i = 0; i < parser.sheets.length; i++) {
   var parserSheet = parser.sheets[i];
   var sheet = findSheetNamed(workbook, parserSheet.names);
   mappedValues = mappedValues.concat(parseSheet(parserSheet, sheet));
-  console.log(JSON.stringify({dataValues: mappedValues}));
 }
+console.log(JSON.stringify({dataValues: mappedValues}));
 
 
 function parseSheet(parserSheet, sheet) {
@@ -31,9 +31,11 @@ function parseSheet(parserSheet, sheet) {
     for (var i = 0; i <  parserRow.mappings.length; i++) {
       var mappingData = parseMapping(parserRow.mappings[i], 
         parserRow, sheet, rowNum, rowData);
-      if (mappingData && mappingData.value) rowData.push(mappingData);
+      if (mappingData) rowData.push(mappingData);
     }
-    data = data.concat(rowData.filter(function(d) {return d && d.dataElement}));
+    data = data.concat(rowData.filter(function(d) {
+      return d && d.dataElement && !empty(d.value);
+    }));
   }
   return data;
 }
@@ -110,7 +112,7 @@ function loadWorkbook(argv) {
     console.log("File to process must be supplied")
     process.exit(1)
   } else {
-    console.log("Loading '" + fileName + "'")
+    // console.log("Loading '" + fileName + "'")
   }
   return XLSX.readFile(fileName);
 }
@@ -121,7 +123,26 @@ function loadOrgs(argv) {
     console.log("Org Units (--orgUnits) must be supplied")
     process.exit(1)
   } else {
-    console.log("Using Organization Units in '" + fileName + "'");
+    // console.log("Using Organization Units in '" + fileName + "'");
   }
   return require("./" + fileName).organisationUnits;
+}
+
+function empty(data) {
+  if (typeof(data) == 'number' || typeof(data) == 'boolean') { 
+    return false; 
+  }
+  if( typeof(data) == 'undefined' || data === null) {
+    return true; 
+  }
+  if (typeof(data.length) != 'undefined') {
+    return data.length == 0;
+  }
+  var count = 0;
+  for (var i in data) {
+    if (data.hasOwnProperty(i)) {
+      count ++;
+    }
+  }
+  return count == 0;
 }

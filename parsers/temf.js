@@ -18,6 +18,8 @@ module.exports = function(_params) {
       }
     },
     sheets: [
+
+      // TEMF
       {
         names: [/4-\d{4} TEMF/],
         startRow: 7,
@@ -89,7 +91,8 @@ module.exports = function(_params) {
                 if (value) {
                   for (var i = 0; i < month_names.length; i++) {
                     if (month_names[i] == value || month_names_short[i] == value) {
-                      return new Date(params.period + "-" + i + "-1");
+                      var month = (i < 9 ? '0' : '') + (i + 1)
+                      return params.period + "-" + month + "-01"
                     }
                   }
                 }
@@ -303,15 +306,93 @@ module.exports = function(_params) {
             }
           ]
         }
+      },
+
+      // Zithromax Application
+      {
+        names: [/5-\d{4} Zithr/],
+        startRow: 9,
+        row: {
+          invariants: {
+            period: function(row) {
+              return params.period;
+            },
+            orgUnit: function(row) {
+              for (var i = 0; i < row.length; i++) {
+                if (row[i].geoconnectID) {
+                  return orgUnitLookup(params.orgUnits)[row[i].geoconnectID];
+                }
+              }
+            },
+          },
+          mappings: [
+            {
+              column: "D",
+              variable: "geoconnectID"
+            },
+            {
+              column: "K",
+              dataElement: "yD4patF6TMc"
+            },
+            {
+              column: "L",
+              dataElement: "XpXE3AYoW4V",
+              mapping: function(value) {
+                return Math.floor(value);
+              }
+            },
+            {
+              column: "M",
+              dataElement: "qXfluft9WvF"
+            },
+            {
+              column: "N",
+              dataElement: "FtgUASI0s26",
+              mapping: function(value) {
+                for (var i = 0; i < month_names_short.length; i++) {
+                  if (hasText(value, month_names_short[i]), true) {
+                    return i + 1;
+                  }
+                }
+              }
+            },
+            {
+              column: "O",
+              dataElement: "HDIz3YLsw73",
+              mapping: function(value) {
+                if (hasText(value, "yes", true)) return "true";
+                if (hasText(value, "no", true)) return "false";
+              }
+            },
+            {
+              column: "P",
+              dataElement: "dEFippgWHZi"
+            },
+            {
+              column: "Q",
+              dataElement: "fY74mfHG6Xr"
+            },
+            {
+              column: "R",
+              dataElement: "QZpTVwpsbw1",
+              mapping: function(value) {
+                for (var i = 0; i < month_names_short.length; i++) {
+                  if (hasText(value, month_names_short[i]), true) {
+                    return i + 1;
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ]
   }
 
   // Helper Funtions:
 
-  let orgUnitMapping = null;
+  var orgUnitMapping = null;
   function orgUnitLookup(orgUnits) {
-    // console.log(orgUnits);
     if (!orgUnitMapping) {
       // Populate org mapping (Geoconnect ID to orgUnit)
       orgUnitMapping = {};
@@ -342,7 +423,7 @@ module.exports = function(_params) {
   }
 
   function hasText(value, text, ignoreCase) {
-    if (value && text) {
+    if (value && text && value.indexOf) {
       if (ignoreCase) {
         return value.toLowerCase().indexOf(text.toLowerCase()) > -1;
       } else {

@@ -122,5 +122,17 @@ Options:
 | E - None                | AE | gqnbsVPxSoV[JMe37GzRyb3] | LIKE "None" *Added None post export, double check categoryCombo option |
 | Comments                | AF | zknpxa5S7P0[] | |
 
+
 ### 5 - Zithromax Application
 
+| Name    | Column  | Mapping | Logic |
+| ------- | ------- | ------- | ----- |
+| Geoconnect ID           | D  | Organization.attributes['Geoconnect ID']  | |
+| Intervention Status     | K  | yD4patF6TMc[] | |
+| Treatment Request       | L  | XpXE3AYoW4V[] | |
+| MDA Partner             | M  | qXfluft9WvF[] | |
+| Month of MDA            | N  | FtgUASI0s26[] | |
+| MDA Funding approved    | O  | HDIz3YLsw73[] | |
+| MDA Funding source      | P  | dEFippgWHZi[] | |
+| Next impact survey year | Q  | fY74mfHG6Xr[] | |
+| Next impact survey month| R  | QZpTVwpsbw1[] | |
