@@ -1,6 +1,16 @@
 var XLSX = require('xlsx');
+var fs = require('fs');
 var argv = require('minimist')(process.argv.slice(2));
-var mappingKeys = ['dataElement', 'period', 'orgUnit', 'categoryOptionCombo', 'attributeOptionCombo', 'value', 'storedBy', 'created', 'lastUpdated', 'followUp'];
+var mappingKeys = ['dataElement', 'period', 'orgUnit', 'categoryOptionCombo', 'attributeOptionCombo', 'value', 'storedBy', 'created', 'lastUpdated', 'followUp','variable'];
+
+// Parse output file name
+var outputFilename = (argv['o'] || argv['output'])
+if (!outputFilename) {
+  console.log("Output filename is required");
+  process.exit(1);
+} else {
+  console.log("Writing to file '" + outputFilename + "'");
+}
 
 // Load Excel Workbook 
 var workbook = loadWorkbook(argv);
@@ -11,14 +21,20 @@ var parser = require('./' + (argv['p'] || argv['parser']))({
   orgUnits: loadOrgs(argv)
 });
 
+// Run the parser sheets on the appropriate workbook sheets
 var mappedValues = [];
-
 for (var i = 0; i < parser.sheets.length; i++) {
   var parserSheet = parser.sheets[i];
   var sheet = findSheetNamed(workbook, parserSheet.names);
   mappedValues = mappedValues.concat(parseSheet(parserSheet, sheet));
 }
-console.log(JSON.stringify({dataValues: mappedValues}));
+
+// Write to output file
+fs.writeFile(outputFilename, JSON.stringify({dataValues: mappedValues}),
+  function(err) {
+    if (err) console.log(err);
+  });
+
 
 
 function parseSheet(parserSheet, sheet) {
@@ -43,27 +59,23 @@ function parseSheet(parserSheet, sheet) {
 function parseMapping(mapping, parserRow, sheet, rowNum, rowData) {
   var cellData = sheet[mapping.column + rowNum];
   if (cellData) {
-    if (mapping.variable) {
-      var data = {};
-      data[mapping.variable] = cellData.v;
-      return data;
-    } else if (mapping.dataElement) {
-      return applyRowData(mapping, parserRow, rowData, cellData);
-    }
+    return applyRowData(mapping, parserRow, rowData, cellData);
   }
 }
 
 function applyRowData(mapping, parserRow, rowData, cellData) {
   var data = {};
 
-  // Apply defaults
-  for (var key in parser.definition.defaults) {
-    data[key] = valueOrRowFunction(parser.definition.defaults[key], rowData);
-  }
+  if (!mapping.variable) {
+    // Apply defaults
+    for (var key in parser.definition.defaults) {
+      data[key] = valueOrRowFunction(parser.definition.defaults[key], rowData);
+    }
 
-  // Apply invariants
-  for (var key in parserRow.invariants) {
-    data[key] = valueOrRowFunction(parserRow.invariants[key], rowData)
+    // Apply invariants 
+    for (var key in parserRow.invariants) {
+      data[key] = valueOrRowFunction(parserRow.invariants[key], rowData)
+    }
   }
 
   // Apply keys in mapping
@@ -112,18 +124,18 @@ function loadWorkbook(argv) {
     console.log("File to process must be supplied")
     process.exit(1)
   } else {
-    // console.log("Loading '" + fileName + "'")
+    console.log("Loading '" + fileName + "'")
   }
   return XLSX.readFile(fileName);
 }
 
 function loadOrgs(argv) {
-  var fileName = argv['o'] || argv['orgUnits']
+  var fileName = argv['u'] || argv['orgUnits']
   if (!fileName) {
     console.log("Org Units (--orgUnits) must be supplied")
     process.exit(1)
   } else {
-    // console.log("Using Organization Units in '" + fileName + "'");
+    console.log("Using Organization Units in '" + fileName + "'");
   }
   return require("./" + fileName).organisationUnits;
 }

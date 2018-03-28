@@ -1,13 +1,14 @@
 ## Usage
 
 ```
-$ node import -p parsers/temf.js -o orgunits.json -t 2018 temf_file.xlsx
+$ node import -p parsers/temf.js -o output.json -u orgunits.json -t 2018 temf_file.xlsx
 ```
 
 Options:
 
   - `-p`, `--parser` - Parser file (see defintion below) to load
-  - `-o`, `--orgUnits` - Org Units file (export from DHIS2 in JSON)
+  - `-o`, `--output` - Destination file for DHIS2 data
+  - `-u`, `--orgUnits` - Org Units file (export from DHIS2 in JSON)
   - `-t`, `--period` - Period to use for imports (passed to parser)
 
 

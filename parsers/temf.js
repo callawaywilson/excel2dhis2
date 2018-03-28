@@ -6,7 +6,9 @@ module.exports = function(_params) {
   let params = Object.assign({
     period: null,
     orgUnits: null,
-    geoconnectAttributeID: 'rct9QrdQEnz'
+    geoconnectAttributeID: 'rct9QrdQEnz',
+    spellingsAttributeID: 'U4FWYMGCWju',
+    rootOrgName: 'Ethiopia'
   }, _params);
 
   var def = {
@@ -28,18 +30,28 @@ module.exports = function(_params) {
             period: function(row) {
               return params.period;
             },
-            orgUnit: function(row) {
-              for (var i = 0; i < row.length; i++) {
-                if (row[i].geoconnectID) {
-                  return orgUnitLookup(params.orgUnits)[row[i].geoconnectID];
-                }
-              }
-            },
+            orgUnit: findOrg,
           },
           mappings: [
             {
+              column: "A",
+              variable: "zone",
+              orgUnit: null
+            },
+            {
+              column: "B",
+              variable: "region",
+              orgUnit: null
+            },
+            {
+              column: "C",
+              variable: "woreda",
+              orgUnit: null
+            },
+            {
               column: "D",
-              variable: "geoconnectID"
+              variable: "geoconnectID",
+              orgUnit: null
             },
             {
               column: "F",
@@ -57,7 +69,8 @@ module.exports = function(_params) {
               column: "I",
               dataElement: "tYEOhAimtsQ",
               mapping: function(value, row) {
-                return /(\d+)/.exec(value)[1]
+                if (/(\d+)/.test(value))
+                  return /(\d+)/.exec(value)[1]
               }
             },
             {
@@ -317,18 +330,28 @@ module.exports = function(_params) {
             period: function(row) {
               return params.period;
             },
-            orgUnit: function(row) {
-              for (var i = 0; i < row.length; i++) {
-                if (row[i].geoconnectID) {
-                  return orgUnitLookup(params.orgUnits)[row[i].geoconnectID];
-                }
-              }
-            },
+            orgUnit: findOrg,
           },
           mappings: [
             {
+              column: "A",
+              variable: "zone",
+              orgUnit: null
+            },
+            {
+              column: "B",
+              variable: "region",
+              orgUnit: null
+            },
+            {
+              column: "C",
+              variable: "woreda",
+              orgUnit: null
+            },
+            {
               column: "D",
-              variable: "geoconnectID"
+              variable: "geoconnectID",
+              orgUnit: null
             },
             {
               column: "K",
@@ -390,25 +413,104 @@ module.exports = function(_params) {
   }
 
   // Helper Funtions:
+  function findOrg(row) {
+    var variables = getRowVariables(row);
+    var org = null;
+    if (variables.geoconnectID) {
+      org = geconnectLookup(params.orgUnits)[variables.geoconnectID];
+    }
+    if (!org && variables.zone && variables.region && variables.woreda) {
+      var orgNames = [params.rootOrgName, variables.zone, 
+        variables.region, variables.woreda];
+      org = districtLookup(params.orgUnits, orgNames).id;
+    }
+    if (!org) {
+      console.log("Unable to find Organization:")
+      console.log(variables);
+    }
+    return org;
+  }
+  function getRowVariables(row) {
+    var variables = {};
+    for (var i = 0; i < row.length; i++) {
+      if (row[i].variable) variables[row[i].variable] = row[i].value;
+    }
+    return variables;
+  }
 
-  var orgUnitMapping = null;
-  function orgUnitLookup(orgUnits) {
-    if (!orgUnitMapping) {
+  // Geoconnect Mapping
+  // {geoconnectID: orgUnit.id}
+  var geoconnectMapping = null;
+  function geconnectLookup(orgUnits) {
+    if (!geoconnectMapping) {
       // Populate org mapping (Geoconnect ID to orgUnit)
-      orgUnitMapping = {};
+      geoconnectMapping = {};
       for (var i = 0; i < orgUnits.length; i++) {
         var orgUnit = orgUnits[i];
-        if (orgUnit.attributeValues) {
-          for (var a = 0; a < orgUnit.attributeValues.length; a++) {
-            var av = orgUnit.attributeValues[a]
-            if (av['attribute']['id'] == params['geoconnectAttributeID']) {
-              orgUnitMapping[av['value']] = orgUnit['id'];
-            }
+        var av = getOrgAttribute(orgUnit, params['geoconnectAttributeID']);
+        if (av) geoconnectMapping[av['value']] = orgUnit['id'];
+      }
+    }
+    return geoconnectMapping;  
+  }
+
+  // Look up a district by a path of its names,
+  // including alternate spellings (from attribute)
+  function districtLookup(orgUnits, orgNames) {
+    var path = '';
+    var org = null;
+    // console.log(orgNames);
+    for (var i = 0; i < orgNames.length; i++) {
+      var name = orgNames[i].trim().toLowerCase();
+      org = findOrgNamedAtPath(orgUnits, name, path);
+      if (org) {
+        path = org.path;
+      } else {
+        return null;
+      }
+    }
+    return org;
+  }
+  function findOrgNamedAtPath(orgUnits, name, path) {
+    // console.log(name, path);
+    for (var i = 0; i < orgUnits.length; i++) {
+      var orgUnit = orgUnits[i];
+      if (orgNames(orgUnit).indexOf(name) > -1) {
+        // console.log(path + orgUnit.id);
+        // console.log(orgUnit.path);
+        if (path + '/' + orgUnit.id ==  orgUnit.path) {
+          // console.log(orgUnit)
+          return orgUnit;
+        } 
+      }
+    }
+  }
+  function orgNames(orgUnit) {
+    var names = [orgUnit.name.trim().toLowerCase()];
+    var av = getOrgAttribute(orgUnit, params['spellingsAttributeID']);
+    if (av && av.value) {
+      var otherSpellings = av.value.split(',');
+      if (otherSpellings && otherSpellings.length) {
+        for (var i = 0; i < otherSpellings.length; i++) {
+          if (otherSpellings[i].trim) {
+            names.push(otherSpellings[i].trim().toLowerCase());
           }
         }
       }
     }
-    return orgUnitMapping;  
+    return names;
+  }
+
+
+  function getOrgAttribute(orgUnit, attributeId) {
+    if (orgUnit.attributeValues) {
+      for (var a = 0; a < orgUnit.attributeValues.length; a++) {
+        var av = orgUnit.attributeValues[a]
+        if (av['attribute']['id'] == attributeId) {
+          return av;
+        }
+      }
+    }
   }
 
   function rowElementValue(row, dataElement, categoryOptionCombo, period, orgUnit) {
