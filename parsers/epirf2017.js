@@ -1,5 +1,8 @@
 module.exports = function(_params) {
 
+  let month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  let month_names_short = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
   let params = Object.assign({
     period: null,
     orgUnits: null,
@@ -26,6 +29,9 @@ module.exports = function(_params) {
           },
           events: {
             program: params.program,
+            eventDate: function(row) {
+              
+            }
             dataValues: [
               // Type of survey
               {
@@ -51,6 +57,17 @@ module.exports = function(_params) {
                   }
                 }
               },
+              // Name of survey site
+              {
+                column: "D",
+                dataElement: "imuAHltsaov",
+              },
+              // Date of Survey
+              {
+                column: "E",
+                dataElement: "nciytFVbQol",
+                mapping:
+              }
             ]
           }
         }
