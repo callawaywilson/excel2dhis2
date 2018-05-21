@@ -1,5 +1,6 @@
 var XLSX = require('xlsx');
 var fs = require('fs');
+var fsPath = require('fs-path');
 var argv = require('minimist')(process.argv.slice(2));
 var mappingKeys = ['dataElement', 'period', 'orgUnit', 'categoryOptionCombo', 'attributeOptionCombo', 'value', 'storedBy', 'created', 'lastUpdated', 'followUp','variable'];
 
@@ -30,7 +31,7 @@ for (var i = 0; i < parser.sheets.length; i++) {
 }
 
 // Write to output file
-fs.writeFile(outputFilename, JSON.stringify({dataValues: mappedValues}),
+fsPath.writeFile(outputFilename, JSON.stringify({dataValues: mappedValues}),
   function(err) {
     if (err) console.log(err);
   });
@@ -39,13 +40,17 @@ fs.writeFile(outputFilename, JSON.stringify({dataValues: mappedValues}),
 
 function parseSheet(parserSheet, sheet) {
   var data = [];
-  var range = /([A-Z]+)([\d]+):([A-Z]+)([\d]+)/.exec(sheet['!ref'])
+  var range = /([A-Z]+)([\d]+):([A-Z]+)([\d]+)/.exec(sheet['!ref']);
+  if (!range) {
+    console.log("Missing sheet information for: " + parserSheet.names);
+    return data;
+  }
   var lastRow = parseInt(range[4], 10);
   var parserRow = parserSheet.row;
   for (var rowNum = parserSheet.startRow; rowNum <= lastRow; rowNum++) {
     var rowData = [];
-    for (var i = 0; i <  parserRow.mappings.length; i++) {
-      var mappingData = parseMapping(parserRow.mappings[i], 
+    for (var i = 0; i <  parserRow.dataValues.length; i++) {
+      var mappingData = parseMapping(parserRow.dataValues[i], 
         parserRow, sheet, rowNum, rowData);
       if (mappingData) rowData.push(mappingData);
     }

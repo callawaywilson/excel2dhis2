@@ -167,12 +167,12 @@ Options:
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
 | MDA 3 - Date                   | E  | ktCOzVn5CKC[] | |
-| MDA 3 - Pop Targeted / SAC     | G  | AtIZ8IS3pyd[AVegvKfvlnS] | |
-| MDA 3 - Pop Targeted / Adult   | H  | AtIZ8IS3pyd[yW288iFizUY] | |
-| MDA 3 #1 - Pop Targeted / SAC     | G  | BFUaToyQOwN[AVegvKfvlnS] | |
-| MDA 3 #1 - Pop Targeted / Adult   | H  | BFUaToyQOwN[yW288iFizUY] | |
-| MDA 3 #2 - Pop Targeted / SAC     | G  | yn8ZrOTU6cV[AVegvKfvlnS] | |
-| MDA 3 #2 - Pop Targeted / Adult   | H  | yn8ZrOTU6cV[yW288iFizUY] | |
+| MDA 3 - Pop Targeted / SAC     | F  | AtIZ8IS3pyd[AVegvKfvlnS] | |
+| MDA 3 - Pop Targeted / Adult   | G  | AtIZ8IS3pyd[yW288iFizUY] | |
+| MDA 3 #1 - Pop Targeted / SAC     | I  | BFUaToyQOwN[AVegvKfvlnS] | |
+| MDA 3 #1 - Pop Targeted / Adult   | J  | BFUaToyQOwN[yW288iFizUY] | |
+| MDA 3 #2 - Pop Targeted / SAC     | L  | yn8ZrOTU6cV[AVegvKfvlnS] | |
+| MDA 3 #2 - Pop Targeted / Adult   | M  | yn8ZrOTU6cV[yW288iFizUY] | |
 
 #### T1
 
@@ -202,8 +202,8 @@ Options:
 
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
-| T3R1 - Date                   | E  | I0HzUP1djpJ[] | |
-| T3R1 - Medicine Selection     | F  | uaCLJBX6YC5[] | |
+| T3R1 - Date                   | F  | I0HzUP1djpJ[] | |
+| T3R1 - Medicine Selection     | E  | uaCLJBX6YC5[] | |
 | T3R1 - Pop Targeted / PreSAC  | G  | QNO43BaqL3B[clHYCgF9jys] | |
 | T3R1 - Pop Targeted / SAC     | H  | QNO43BaqL3B[AVegvKfvlnS] | |
 | T3R1 - Pop Targeted / Adult   | I  | QNO43BaqL3B[yW288iFizUY] | |
@@ -215,12 +215,14 @@ Options:
 
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
-| T3R2 - Date                   | E  | k8dqjv7btGO[] | |
-| T3R2 - Medicine Selection     | F  | l576SEiEppI[] | |
+| T3R2 - Date                   | F  | k8dqjv7btGO[] | |
+| T3R2 - Medicine Selection     | E  | l576SEiEppI[] | |
 | T3R2 - Pop Targeted / PreSAC  | G  | iKHUsxY44Du[clHYCgF9jys] | |
 | T3R2 - Pop Targeted / SAC     | H  | iKHUsxY44Du[AVegvKfvlnS] | |
 | T3R2 - Pop Targeted / Adult   | I  | iKHUsxY44Du[yW288iFizUY] | |
 | T3R2 - Pop Treated / PreSAC   | K  | dNlHjGevP1d[clHYCgF9jys] | |
 | T3R2 - Pop Treated / SAC      | L  | dNlHjGevP1d[AVegvKfvlnS] | |
 | T3R2 - Pop Treated / Adult    | M  | dNlHjGevP1d[yW288iFizUY] | |
+
+
 
