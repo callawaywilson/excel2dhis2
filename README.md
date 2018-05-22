@@ -225,4 +225,32 @@ Options:
 | T3R2 - Pop Treated / Adult    | M  | dNlHjGevP1d[yW288iFizUY] | |
 
 
+### Joint Request for Selected PC Medicines
 
+#### LF
+
+| Name    | Column  | Mapping | Logic |
+| ------- | ------- | ------- | ----- |
+| Type of Survey                | A   | GY0DIuqIei9 |  |
+| Name of survey site           | B   | imuAHltsaov |  |
+| Date of Survey                | E   | nciytFVbQol |  |
+| Date of the first PC round    | H   | gz4hHQXzVS0 |  |
+| PC Rounds delivered prior     | I   | P9iRMnvQu08 |  |
+| Diagnostic Test               | J   | oKD5iLYEkCN |  |
+| Min Age                       | K   | E0ZexaeMoAo |  |
+| Max Age                       | K   | WlMTnbyM2WB |  |
+| Survey Site                   | L   | JGWdINJrLak |  |
+| Survey Type                   | M   | KEVPtXXyHQV |  |
+| Target sample size            | N   | gBS9GWku36T |  |
+| Number of people examined     | O   | fSwd2C6xiqW |  |
+| Number of people positive     | P   | SwiTL6UfvVv |  |
+| Number of invalid tests       | R   | tIjR1abWHwk |  |
+| LF Decision                   | S   | Ru9qu8oDDdb |  |
+| LF - Number of Patients (Lymphoedema)            | T   | P57ddvXSAOa |  |
+| LF - Method of Patient Estimation (Lymphoedema)  | U   | udPN6puZqbt |  |
+| LF - Date of Patient Estimation (Lymphoedema)    | V   | ZbBcICa2ZFL |  |
+| LF - Number of Health Facilities (Lymphoedema)   | W   | C6kJXQ965vc |  |
+| LF - Number of Patients (Hydrocele)              | X   | BdGNHpuJ5rj |  |
+| LF - Method of Patient Estimation (Hydrocele)    | Y   | rtCyuvva9LX |  |
+| LF - Date of Patient Estimation (Hydrocele)      | Z   | fsru6N01Tur |  |
+| LF - Number of Health Facilities (Hydrocele)     | AA  | qGExiSa3EMS |  |

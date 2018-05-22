@@ -3,6 +3,7 @@ var fs = require('fs');
 var fsPath = require('fs-path');
 var argv = require('minimist')(process.argv.slice(2));
 var mappingKeys = ['dataElement', 'period', 'orgUnit', 'categoryOptionCombo', 'attributeOptionCombo', 'value', 'storedBy', 'created', 'lastUpdated', 'followUp','variable'];
+var eventReqiredKeys = ['program','eventDate','orgUnit'];
 
 // Parse output file name
 var outputFilename = (argv['o'] || argv['output'])
@@ -16,22 +17,39 @@ if (!outputFilename) {
 // Load Excel Workbook 
 var workbook = loadWorkbook(argv);
 
+// Load org units
+var orgUnits = loadOrgs(argv);
+var orgTree = require('./orgunittree.js')(orgUnits, {
+  geoconnectAttributeID: 'rct9QrdQEnz',
+  spellingsAttributeID: 'U4FWYMGCWju',
+  rootOrgId: 'iuGjpnxnFbI'
+});
+
 // Load parser, the logic structure that drives the data transform
 var parser = require('./' + (argv['p'] || argv['parser']))({
   period: (argv['t'] || argv['period']),
-  orgUnits: loadOrgs(argv)
+  orgUnits: orgUnits,
+  orgTree: orgTree
 });
 
 // Run the parser sheets on the appropriate workbook sheets
-var mappedValues = [];
+var mappedValues = {};
 for (var i = 0; i < parser.sheets.length; i++) {
   var parserSheet = parser.sheets[i];
   var sheet = findSheetNamed(workbook, parserSheet.names);
-  mappedValues = mappedValues.concat(parseSheet(parserSheet, sheet));
+  var sheetData = parseSheet(parserSheet, sheet);
+  if (sheetData.events) {
+    if (!mappedValues.events) mappedValues.events = [];
+    mappedValues.events = mappedValues.events.concat(sheetData.events);
+  } else if (sheetData.dataValues) {
+    if (!mappedValues.dataValues) mappedValues.dataValues = [];
+    mappedValues.dataValues = mappedValues.dataValues.concat(sheetData.dataValues);
+  }
+  // mappedValues = mappedValues.concat();
 }
 
 // Write to output file
-fsPath.writeFile(outputFilename, JSON.stringify({dataValues: mappedValues}),
+fsPath.writeFile(outputFilename, JSON.stringify(mappedValues),
   function(err) {
     if (err) console.log(err);
   });
@@ -47,18 +65,57 @@ function parseSheet(parserSheet, sheet) {
   }
   var lastRow = parseInt(range[4], 10);
   var parserRow = parserSheet.row;
-  for (var rowNum = parserSheet.startRow; rowNum <= lastRow; rowNum++) {
-    var rowData = [];
-    for (var i = 0; i <  parserRow.dataValues.length; i++) {
-      var mappingData = parseMapping(parserRow.dataValues[i], 
-        parserRow, sheet, rowNum, rowData);
-      if (mappingData) rowData.push(mappingData);
+
+  // Program Event Mapping
+  if (parserRow.event) {
+    for (var rowNum = parserSheet.startRow; rowNum <= lastRow; rowNum++) {
+      var rowData = parseRowDataValues(parserRow, sheet, rowNum);
+      var event = parseRowEvent(parserRow.event, rowData);
+      event.dataValues = rowData.filter(function(d) {
+        return d && d.dataElement && !empty(d.value);
+      });
+      // Check for required event fields:
+      var missingKey = false;
+      for (var k = 0; k < eventReqiredKeys.length; k++) {
+        if (!event[eventReqiredKeys[k]]) {
+          missingKey = true;
+        }
+      }
+      if (!missingKey && event.dataValues.length > 0) {
+        data = data.concat(event);
+      }
     }
-    data = data.concat(rowData.filter(function(d) {
-      return d && d.dataElement && !empty(d.value);
-    }));
+    return {"events": data}
+  } else if (parserRow.dataValues) {
+    for (var rowNum = parserSheet.startRow; rowNum <= lastRow; rowNum++) {
+      var rowData = parseRowDataValues(parserRow, sheet, rowNum);
+      data = data.concat(rowData.filter(function(d) {
+        return d && d.dataElement && !empty(d.value);
+      }));
+    }
+    return {"dataValues": data}
+  } else {
+    console.log("Unknown row config");
+    return []
   }
-  return data;
+}
+
+function parseRowDataValues(parserRow, sheet, rowNum) {
+  var rowData = [];
+  for (var i = 0; i <  parserRow.dataValues.length; i++) {
+    var mappingData = parseMapping(parserRow.dataValues[i], 
+      parserRow, sheet, rowNum, rowData);
+    if (mappingData) rowData.push(mappingData);
+  }
+  return rowData;
+}
+
+function parseRowEvent(parserEvent, rowData) {
+  var event = {};
+  for (var key in parserEvent) {
+    event[key] = valueOrRowFunction(parserEvent[key], rowData)
+  }
+  return event;
 }
 
 function parseMapping(mapping, parserRow, sheet, rowNum, rowData) {
@@ -73,13 +130,17 @@ function applyRowData(mapping, parserRow, rowData, cellData) {
 
   if (!mapping.variable) {
     // Apply defaults
-    for (var key in parser.definition.defaults) {
-      data[key] = valueOrRowFunction(parser.definition.defaults[key], rowData);
+    if (parser.definition && parser.definition.defaults) {
+      for (var key in parser.definition.defaults) {
+        data[key] = valueOrRowFunction(parser.definition.defaults[key], rowData);
+      }
     }
 
-    // Apply invariants 
-    for (var key in parserRow.invariants) {
-      data[key] = valueOrRowFunction(parserRow.invariants[key], rowData)
+    // Apply invariants
+    if (parserRow.invariants) { 
+      for (var key in parserRow.invariants) {
+        data[key] = valueOrRowFunction(parserRow.invariants[key], rowData)
+      }
     }
   }
 

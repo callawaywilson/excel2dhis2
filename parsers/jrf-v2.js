@@ -13,7 +13,7 @@ module.exports = function(_params) {
     rootOrgId: 'Ethiopia'
   }, _params);
 
-  var orgTree = orgsToTree('iuGjpnxnFbI', params.orgUnits);
+  var orgTree = params.orgTree;
   var geoconnectLookup = orgsToGeoconnectLookup(params.orgUnits);
 
   var def = {
