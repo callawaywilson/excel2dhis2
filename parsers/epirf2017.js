@@ -11,6 +11,7 @@ module.exports = function(_params) {
     lfProgram: "TBJMLbC2QM1",
     programStage: "jrgpfrJKSW0",
     rootOrgName: 'Ethiopia',
+    attributeOptionCombo: "HllvX50cXC0",
     attributeCategoryOptions: "xYerKDKCefk"
   }, _params);
 
@@ -26,7 +27,20 @@ module.exports = function(_params) {
         params: params,
         row: {
           event: {
+            event: function(row) {
+              var district = getRowVariables(row)['district'];
+              if (!district) district = "0"
+              var date = getRowDataElements(row)['nciytFVbQol'];
+              if (!date) {
+                date = moment(new Date(params.period,0,1)).format('YYYY-MM-DD');
+              }
+              return params.lfProgram + "-" + district.id + "-" + date;
+            },
             program: params.lfProgram,
+            programStage: params.programStage,
+            attributeOptionCombo: params.attributeOptionCombo,
+            attributeCategoryOptions: params.attributeCategoryOptions,
+            status: "COMPLETED",
             eventDate: function(row) {
               var date = getRowDataElements(row)['nciytFVbQol'];
               if (!date) {
@@ -56,7 +70,7 @@ module.exports = function(_params) {
               if (comments) {
                 return [{value: comments}]
               }
-            }
+            },
           },
           invariants: {
 

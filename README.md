@@ -81,7 +81,23 @@ Options:
   5. Output JSON of all dataElements
 
 
-#### Mappings
+### Population Numbers - From JRF
+
+| Name    | Column  | Mapping | Logic |
+| ------- | ------- | ------- | ----- |
+| Population - PreSAC         | E  | HMJ3Hth1ry7[clHYCgF9jys] | |
+| Population - SAC            | F  | HMJ3Hth1ry7[AVegvKfvlnS] | |
+| Population - Adults         | G  | HMJ3Hth1ry7[yW288iFizUY] | |
+| Population - Adults         | G  | HMJ3Hth1ry7[yW288iFizUY] | |
+| Prevalence - LF             | G  | Nva0k6G5RsF[RIEjTfuzC1z] | |
+| Prevalence - Oncho          | H  | Nva0k6G5RsF[SjE9LhAEw1i] | |
+| Prevalence - STH            | I  | Nva0k6G5RsF[MgZwyzoI9Ka] | |
+| Prevalence - SCH            | J  | Nva0k6G5RsF[eFifYMTcO2T] | |
+
+
+### TEMF & Zithromax Application
+
+#### TEMF
 
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
