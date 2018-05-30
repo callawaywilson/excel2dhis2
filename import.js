@@ -78,7 +78,7 @@ function parseSheet(parserSheet, sheet) {
       var missingKey = false;
       for (var k = 0; k < eventReqiredKeys.length; k++) {
         if (!event[eventReqiredKeys[k]]) {
-          missingKey = true;
+          missingKey = eventReqiredKeys[k];
         }
       }
       if (!missingKey && event.dataValues.length > 0) {

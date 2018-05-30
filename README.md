@@ -89,10 +89,14 @@ Options:
 | Population - SAC            | F  | HMJ3Hth1ry7[AVegvKfvlnS] | |
 | Population - Adults         | G  | HMJ3Hth1ry7[yW288iFizUY] | |
 | Population - Adults         | G  | HMJ3Hth1ry7[yW288iFizUY] | |
-| Prevalence - LF             | G  | Nva0k6G5RsF[RIEjTfuzC1z] | |
-| Prevalence - Oncho          | H  | Nva0k6G5RsF[SjE9LhAEw1i] | |
-| Prevalence - STH            | I  | Nva0k6G5RsF[MgZwyzoI9Ka] | |
-| Prevalence - SCH            | J  | Nva0k6G5RsF[eFifYMTcO2T] | |
+| Prevalence - LF             | H  | Nva0k6G5RsF[RIEjTfuzC1z] | |
+| Prevalence - Oncho          | I  | Nva0k6G5RsF[SjE9LhAEw1i] | |
+| Prevalence - STH            | J  | Nva0k6G5RsF[MgZwyzoI9Ka] | |
+| Prevalence - SCH            | K  | Nva0k6G5RsF[eFifYMTcO2T] | |
+| Endemicity - LF             | H  | BwX5xyuCQQU[RIEjTfuzC1z] | |
+| Endemicity - Oncho          | I  | BwX5xyuCQQU[SjE9LhAEw1i] | |
+| Endemicity - STH            | J  | BwX5xyuCQQU[MgZwyzoI9Ka] | |
+| Endemicity - SCH            | K  | BwX5xyuCQQU[eFifYMTcO2T] | |
 
 
 ### TEMF & Zithromax Application
@@ -270,3 +274,34 @@ Options:
 | LF - Method of Patient Estimation (Hydrocele)    | Y   | rtCyuvva9LX |  |
 | LF - Date of Patient Estimation (Hydrocele)      | Z   | fsru6N01Tur |  |
 | LF - Number of Health Facilities (Hydrocele)     | AA  | qGExiSa3EMS |  |
+
+
+#### Oncho
+
+| Name    | Column  | Mapping | Logic |
+| ------- | ------- | ------- | ----- |
+| Type of Survey                | A   | OCB7xrl5og0 |  |
+| Community Surveyed            | D   | a2nbxmFN7I3 |  |
+| Date of First PC Round        | H   | gz4hHQXzVS0 |  |
+| Oncho Treatment Strategy      | I   | oqNUs0mZrq8 |  |
+| Pre-control Prevalence        | J   | I1b1mzCkfHq |  |
+| Rounds delivered p. to survey | K   | P9iRMnvQu08 |  |
+| MF Skin Snip - Diagnostic Method      | L   | cg0paY8on36 |  |
+| MF Skin Snip - Number People Examined | M   | mLCVHr0rhni |  |
+| Oncho - MF Skin Snip - Minimum Age    | N   | icN4AkulJGC |  |
+| Oncho - MF Skin Snip - Maximum Age    | N   | PljKluU3jfw |  |
+| MF Skin Snip - Number People Positive | O   | Eviv4dwEmAM |  |
+| MF Skin Snip - CMFL                   | Q   | TTQweaIKeoF |  |
+| Serology -  Diagnostic                | R   | v88aw43TrCe |  |
+| Serology -  Sampling method           | S   | KfkfNfxq18n |  |
+| Serology -  # Examined                | T   | w4i03vkP8bP |  |
+| Serology -  Min Age                   | U   | oHQS85o8Fju |  |
+| Serology -  Max Age                   | U   | KrRyIHEklhu |  |
+| Serology -  # Positive                | V   | Nx9AA4QYa8K |  |
+| PCR-BF - # Flies Examined             | X   | RWt5suL4HyS |  |
+| PCR-BF - Species of vector            | Y   | CLMHpu1T3s1 |  |
+| PCR-BF - % poolscreen positive        | Z   | iAJgdhzlboL |  |
+| Crab  - # Crabs examined              | AA  | SyjrMOaIx5f |  |
+| Crab  - Species of vector             | AB  | KZleAN2NyHB |  |
+| Crab  - % MF Positive                 | AC  | zaGCXSvfUUn |  |
+| Programmatic Decision                 | AD  | sG6crE6N2fY |  |

@@ -416,31 +416,25 @@ module.exports = function(_params) {
           dataValues: [
             // Type of survey
             {
-              column: "A",
+              column: "F",
               dataElement: "OCB7xrl5og0",
               mapping: function(value, row) {
-                if (value === "Mapping") {
-                  return "mapping";
-                } else if (value === "Phase 1A") {
-                  return "phase1a";
-                } else if (value === "Phase 1B") {
-                  return "phase1b";
-                } else if (value === "PTS") {
-                  return "pts";
+                if (value) {
+                  if (value.match(/map/i)) {
+                    return "mapping";
+                  } else if (value.match(/1a/i)) {
+                    return "phase1a";
+                  } else if (value.match(/1b/i)) {
+                    return "phase1b";
+                  } else if (value.match(/pts/i)) {
+                    return "pts";
+                  }
                 }
               }
             },
-            // Admin Level 1
+            // Admin
             {
-              column: "B",
-              variable: "regionName",
-              mapping: function(value, row) {
-                return value
-              }
-            },
-            // Admin Level 2
-            {
-              column: "C",
+              column: "A",
               variable: "district",
               mapping: function(value, row) {
                 return getDistrict(value);
@@ -449,71 +443,33 @@ module.exports = function(_params) {
             // Community Surveyed 
             {
               column: "D",
-              dataElement: "a2nbxmFN7I3",
+              dataElemBnt: "a2nbxmFN7I3",
             },
             // Date of survey
             {
-              column: "E",
+              column: "C",
               variable: "dateOfSurvey",
               mapping: function(value, row) {
                 var d = moment(value, 'MMMM YYYY');
-                if (!d) d = moment(value + ' ' + params.period, 'MMMM YYYY' );
+                if (!d) d = moment(value + ' ' + params.period, 'MMMM YYYY');
                 return d.format('YYYY-MM-DD');
               }
             },
             // Latitude
             { 
-              column: "F",
+              column: "D",
               variable: "latitude"
             },
             // Longitude
             { 
-              column: "G",
+              column: "E",
               variable: "longitude"
-            },
-            // Date of First PC Round
-            {
-              column: "H",
-              dataElement: "gz4hHQXzVS0",
-              mapping: function(value, row) {
-                if (value) {
-                  return moment(value, 'YYYY').format('YYYY-MM-DD');
-                }
-              }
-            },
-            // Treatment Strategy
-            {
-              column: "I",
-              dataElement: "oqNUs0mZrq8",
-              mapping: function(value, row) {
-                if (value === "Annual") {
-                  return "annual";
-                } else if (value === "Semi-annual") {
-                  return "semi_annual";
-                }
-              }
-            },
-            // Pre-control prevalence
-            {
-              column: "J",
-              dataElement: "I1b1mzCkfHq",
-              mapping: function(value, row) {
-                return value;
-              }
-            },
-            // Rounds delivered p. to survey
-            {
-              column: "K",
-              dataElement: "P9iRMnvQu08",
-              mapping: function(value, row) {
-                if (value) return parseInt(value, 10);
-              }
             },
 
             // MF Skin Snip
             // Diagnostic Method
             {
-              column: "L",
+              column: "G",
               dataElement: "cg0paY8on36",
               mapping: function(value, row) {
                 if (value === "Microscopy") {
@@ -525,100 +481,33 @@ module.exports = function(_params) {
             },
             // Number People Examined
             {
-              column: "M",
+              column: "H",
               dataElement: "mLCVHr0rhni",
               mapping: function(value, row) {
                 if (value) return parseInt(value, 10);
               }
             },
-            // Min Age
-            {
-              column: "N",
-              dataElement: "icN4AkulJGC",
-              mapping: function(value, row) {
-                var match = /(\d{2})(\d{2})/.exec(value);
-                if (match && match[1]) return parseInt(match[1],10)
-              }
-            },
-            // Max Age
-            {
-              column: "N",
-              dataElement: "PljKluU3jfw",
-              mapping: function(value, row) {
-                var match = /(\d{2})(\d{2})/.exec(value);
-                if (match && match[2]) return parseInt(match[2],10)
-              }
-            },
             // Number People Positive
             {
-              column: "O",
+              column: "I",
               dataElement: "Eviv4dwEmAM",
               mapping: function(value, row) {
                 if (value) return parseInt(value, 10);
               }
             },
-            // CMFL
-            {
-              column: "Q",
-              dataElement: "TTQweaIKeoF"
-            },
 
             // Serology
-            // Diagnostic Method
-            {
-              column: "R",
-              dataElement: "v88aw43TrCe",
-              mapping: function(value, row) {
-                if (value === "RDT") {
-                  return "rdt";
-                } else if (value === "ELISA") {
-                  return "elisa";
-                }
-              }
-            },
-            // Sampling Method
-            {
-              column: "S",
-              dataElement: "KfkfNfxq18n",
-              mapping: function(value, row) {
-                if (value === "Cluster") {
-                  return "cluster";
-                } else if (value === "Systematic") {
-                  return "systematic";
-                } else if (value === "Convenience") {
-                  return "convenience";
-                }
-              }
-            },
             // Number People Examined
             {
-              column: "T",
+              column: "K",
               dataElement: "w4i03vkP8bP",
               mapping: function(value, row) {
                 if (value) return parseInt(value, 10);
               }
             },
-            // Min Age
-            {
-              column: "U",
-              dataElement: "oHQS85o8Fju",
-              mapping: function(value, row) {
-                var match = /(\d{2})(\d{2})/.exec(value);
-                if (match[1]) return parseInt(match[1],10)
-              }
-            },
-            // Max Age
-            {
-              column: "U",
-              dataElement: "KrRyIHEklhu",
-              mapping: function(value, row) {
-                var match = /(\d{2})(\d{2})/.exec(value);
-                if (match[2]) return parseInt(match[2],10)
-              }
-            },
             // Number People Positive
             {
-              column: "V",
+              column: "L",
               dataElement: "Nx9AA4QYa8K",
               mapping: function(value, row) {
                 if (value) return parseInt(value, 10);
@@ -628,60 +517,18 @@ module.exports = function(_params) {
             // PCR in black flies
             // # Flies Examined
             {
-              column: "X",
+              column: "N",
               dataElement: "RWt5suL4HyS",
               mapping: function(value, row) {
                 if (value) return parseInt(value, 10);
               }
             },
-            // Species of vector
-            {
-              column: "Y",
-              dataElement: "CLMHpu1T3s1"
-            },
             // % Poolscreen positive
             {
-              column: "Z",
+              column: "O",
               dataElement: "iAJgdhzlboL",
               mapping: function(value, row) {
                 if (value) return parseFloat(value);
-              }
-            },
-
-            // Crabs
-            // # Crabs Examined
-            {
-              column: "AA",
-              dataElement: "SyjrMOaIx5f",
-              mapping: function(value, row) {
-                if (value) return parseInt(value, 10);
-              }
-            },
-            // Species of vector
-            {
-              column: "AB",
-              dataElement: "KZleAN2NyHB"
-            },
-            // % MF positive
-            {
-              column: "AC",
-              dataElement: "zaGCXSvfUUn",
-              mapping: function(value, row) {
-                if (value) return parseFloat(value);
-              }
-            },
-            // Programmatic decision
-            { 
-              column: "AD",
-              dataElement: "sG6crE6N2fY",
-              mapping: function(value, row) {
-                if (value === "Continue MDA") {
-                  return "continue_mda";
-                } else if (value === "Change MDA Strategy") {
-                  return "change_mda_strategy";
-                } else if (value === "Stop MDA") {
-                  return "stop_mda";
-                }
               }
             }
           ]
