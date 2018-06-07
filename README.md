@@ -174,6 +174,8 @@ Options:
 
 #### MDA2
 
+| Name    | Column  | Mapping | Logic |
+| ------- | ------- | ------- | ----- |
 | MDA 2 - Date                   | E  | Dq51uK1OS8i[] | |
 | MDA 2 - Pop Targeted / PreSAC  | F  | knszUMU2VJz[clHYCgF9jys] | |
 | MDA 2 - Pop Targeted / SAC     | G  | knszUMU2VJz[AVegvKfvlnS] | |
