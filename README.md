@@ -85,18 +85,18 @@ Options:
 
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
-| Population - PreSAC         | E  | HMJ3Hth1ry7[clHYCgF9jys] | |
-| Population - SAC            | F  | HMJ3Hth1ry7[AVegvKfvlnS] | |
-| Population - Adults         | G  | HMJ3Hth1ry7[yW288iFizUY] | |
-| Population - Adults         | G  | HMJ3Hth1ry7[yW288iFizUY] | |
-| Prevalence - LF             | H  | Nva0k6G5RsF[RIEjTfuzC1z] | |
-| Prevalence - Oncho          | I  | Nva0k6G5RsF[SjE9LhAEw1i] | |
-| Prevalence - STH            | J  | Nva0k6G5RsF[MgZwyzoI9Ka] | |
-| Prevalence - SCH            | K  | Nva0k6G5RsF[eFifYMTcO2T] | |
-| Endemicity - LF             | H  | BwX5xyuCQQU[RIEjTfuzC1z] | |
-| Endemicity - Oncho          | I  | BwX5xyuCQQU[SjE9LhAEw1i] | |
-| Endemicity - STH            | J  | BwX5xyuCQQU[MgZwyzoI9Ka] | |
-| Endemicity - SCH            | K  | BwX5xyuCQQU[eFifYMTcO2T] | |
+| Population - PreSAC         | E  | ntd-pop[clHYCgF9jys] | |
+| Population - SAC            | F  | ntd-pop[AVegvKfvlnS] | |
+| Population - Adults         | G  | ntd-pop[yW288iFizUY] | |
+| Population - Adults         | G  | ntd-pop[yW288iFizUY] | |
+| Prevalence - LF             | H  | pcn-prevalence[RIEjTfuzC1z] | |
+| Prevalence - Oncho          | I  | pcn-prevalence[SjE9LhAEw1i] | |
+| Prevalence - STH            | J  | pcn-prevalence[MgZwyzoI9Ka] | |
+| Prevalence - SCH            | K  | pcn-prevalence[eFifYMTcO2T] | |
+| Endemicity - LF             | H  | pcn-endemicity[RIEjTfuzC1z] | |
+| Endemicity - Oncho          | I  | pcn-endemicity[SjE9LhAEw1i] | |
+| Endemicity - STH            | J  | pcn-endemicity[MgZwyzoI9Ka] | |
+| Endemicity - SCH            | K  | pcn-endemicity[eFifYMTcO2T] | |
 
 
 ### TEMF & Zithromax Application
