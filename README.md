@@ -106,15 +106,15 @@ Options:
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
 | Geoconnect ID           | D  | Organization.attributes['Geoconnect ID']  | |
-| Year of Current Survey  | F  | fwocIchmkBs[]                  | |
-| Current TF %            | G  | iB2QByaVoiB[]                  | |
-| Current TT %            | H  | L36uJKin4xW[]                  | |
-| TT Age Group            | I  | tYEOhAimtsQ[] | String like "F & M ≥ 15", parse to min age |
-| TT Sex                  | I  | mPMdsgLyqev[] | String like "F & M ≥ 15", parse to sex |
-| TT Data Source          | J  | vbohuRxSxDE[] | |
-| TT Surgery - F          | K  | d7TTTQDQSEL[XxPgNmIyWEx] | |
-| TT Surgery - M          | L  | d7TTTQDQSEL[H8q1t9ex8OR] | |
-| Month of MDA            | O  | wjJTQ33NCbj[] | Sheet has month, translate to date |
+| Year of Current Survey  | F  | pcn-survey-year[]                  | |
+| Current TF %            | G  | trch-tf-pct[]                  | |
+| Current TT %            | H  | trch-tt-pct[]                  | |
+| TT Age Group            | I  | trch-tt-age[] | String like "F & M ≥ 15", parse to min age |
+| TT Sex                  | I  | trch-tt-sex[] | String like "F & M ≥ 15", parse to sex |
+| TT Data Source          | J  | trch-tt-survey[] | |
+| TT Surgery - F          | K  | trch-surgeries[XxPgNmIyWEx] | |
+| TT Surgery - M          | L  | trch-surgeries[H8q1t9ex8OR] | |
+| Month of MDA            | O  | :fire [] | Sheet has month, translate to date |
 | Antib. - Az tabs - F    | P  | NrsJDmb5ymd[xtUty2s6rb9] | Use either P&Q or R.  If all 3, use P&Q |
 | Antib. - Az tabs - M    | Q  | NrsJDmb5ymd[rVAT5UlKOVq] | Use either P&Q or R.  If all 3, use P&Q |
 | Antib. - Az tabs - Unk  | R  | NrsJDmb5ymd[uE0CxADyNck] | Use either P&Q or R.  If all 3, use P&Q |
