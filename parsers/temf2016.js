@@ -371,7 +371,7 @@ module.exports = function(_params) {
             },
             {
               column: "N",
-              dataElement: "FtgUASI0s26",
+              dataElement: "pcn-pcdate",
               mapping: function(value) {
                 for (var i = 0; i < month_names_short.length; i++) {
                   if (hasText(value, month_names_short[i]), true) {

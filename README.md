@@ -152,7 +152,7 @@ Options:
 | Intervention Status     | K  | yD4patF6TMc[] | |
 | Treatment Request       | L  | XpXE3AYoW4V[] | |
 | MDA Partner             | M  | qXfluft9WvF[] | |
-| Month of MDA            | N  | FtgUASI0s26[] | |
+| Month of MDA            | N  | pcn-pcdate[] | |
 | MDA Funding approved    | O  | HDIz3YLsw73[] | |
 | MDA Funding source      | P  | dEFippgWHZi[] | |
 | Next impact survey year | Q  | fY74mfHG6Xr[] | |
