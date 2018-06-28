@@ -115,32 +115,32 @@ Options:
 | TT Surgery - F          | K  | trch-surgeries[XxPgNmIyWEx] | |
 | TT Surgery - M          | L  | trch-surgeries[H8q1t9ex8OR] | |
 | Month of MDA            | O  | :fire [] | Sheet has month, translate to date |
-| Antib. - Az tabs - F    | P  | NrsJDmb5ymd[xtUty2s6rb9] | Use either P&Q or R.  If all 3, use P&Q |
-| Antib. - Az tabs - M    | Q  | NrsJDmb5ymd[rVAT5UlKOVq] | Use either P&Q or R.  If all 3, use P&Q |
-| Antib. - Az tabs - Unk  | R  | NrsJDmb5ymd[uE0CxADyNck] | Use either P&Q or R.  If all 3, use P&Q |
-| Antib. - Az Oral - F    | S  | NrsJDmb5ymd[AkUk2I8UYdo] | Use either S&T or U.  If all 3, use S&T |
-| Antib. - Az Oral - M    | T  | NrsJDmb5ymd[ueQESuOZbTK] | Use either S&T or U.  If all 3, use S&T |
-| Antib. - Az Oral - Unk  | U  | NrsJDmb5ymd[VDJkgG8WuMr] | Use either S&T or U.  If all 3, use S&T |
-| Antib. - Tet Oin - F    | V  | NrsJDmb5ymd[igXj2FYlmQ3] | Use either V&W or X.  If all 3, use V&W |
-| Antib. - Tet Oin - M    | W  | NrsJDmb5ymd[GoajnE9epLK] | Use either V&W or X.  If all 3, use V&W |
-| Antib. - Tet Oin - Unk  | X  | NrsJDmb5ymd[VnTPvQznpOf] | Use either V&W or X.  If all 3, use V&W |
-| Antib. - Az Drops - F   | Y  | NrsJDmb5ymd[vcUu6ODYhLw] | Use either Y&Z or AA.  If all 3, use Y&Z |
-| Antib. - Az Drops - M   | Z  | NrsJDmb5ymd[hskrbPDMQ8u] | Use either Y&Z or AA.  If all 3, use Y&Z |
-| Antib. - Az Drops - Unk | AA | NrsJDmb5ymd[lmiSrZd1dDJ] | Use either Y&Z or AA.  If all 3, use Y&Z |
-| F - time of MDA         | AD | o33d514b4LM[WUjsOlQ1ta4] | LIKE "At time of MDA" |
-| F - school-based        | AD | o33d514b4LM[JVgAvwuqe6H] | LIKE "School Based" |
-| F - radio/media         | AD | o33d514b4LM[gzyIHIx7qQd] | LIKE "Radio Message and/or other mass media" |
-| F - CHW                 | AD | o33d514b4LM[cAbNbOtOV5Y] | LIKE "Village health worker or equivalent" |
-| F - Primary healthcare  | AD | o33d514b4LM[yGcTqXGXmQs] | LIKE "Primary healthcare" |
-| F - Other               | AD | o33d514b4LM[qClFirrlViZ] | LIKE "Other" |
-| F - None                | AD | o33d514b4LM[dSbmqcOKis2] | LIKE "None" |
-| E - Latrine/NTTF        | AE | gqnbsVPxSoV[bcqX62Vavtz] | LIKE "Latrine construction by NTTF Member" |
-| E - Water Point/NTTF    | AE | gqnbsVPxSoV[Kb8PX7E8r2j] | LIKE "Water point construction by NTTF member" |
-| E - Latrine/Other       | AE | gqnbsVPxSoV[Q26YQD2JeWO] | LIKE "Latrine construction by other stakeholders" |
-| E - Water Point/Other   | AE | gqnbsVPxSoV[Ue60RFoLwWi] | LIKE "Water point construction by other stakeholders" |
-| E - Comm-led sani       | AE | gqnbsVPxSoV[wVxHAvy7psp] | LIKE "Community led total sanitation" |
-| E - Other               | AE | gqnbsVPxSoV[fS91yAIC7qR] | LIKE "Other" |
-| E - None                | AE | gqnbsVPxSoV[JMe37GzRyb3] | LIKE "None" *Added None post export, double check categoryCombo option |
+| Antib. - Az tabs - F    | P  | pcn-pop-trt[xtUty2s6rb9] | Use either P&Q or R.  If all 3, use P&Q |
+| Antib. - Az tabs - M    | Q  | pcn-pop-trt[rVAT5UlKOVq] | Use either P&Q or R.  If all 3, use P&Q |
+| Antib. - Az tabs - Unk  | R  | pcn-pop-trt[uE0CxADyNck] | Use either P&Q or R.  If all 3, use P&Q |
+| Antib. - Az Oral - F    | S  | pcn-pop-trt[AkUk2I8UYdo] | Use either S&T or U.  If all 3, use S&T |
+| Antib. - Az Oral - M    | T  | pcn-pop-trt[ueQESuOZbTK] | Use either S&T or U.  If all 3, use S&T |
+| Antib. - Az Oral - Unk  | U  | pcn-pop-trt[VDJkgG8WuMr] | Use either S&T or U.  If all 3, use S&T |
+| Antib. - Tet Oin - F    | V  | pcn-pop-trt[igXj2FYlmQ3] | Use either V&W or X.  If all 3, use V&W |
+| Antib. - Tet Oin - M    | W  | pcn-pop-trt[GoajnE9epLK] | Use either V&W or X.  If all 3, use V&W |
+| Antib. - Tet Oin - Unk  | X  | pcn-pop-trt[VnTPvQznpOf] | Use either V&W or X.  If all 3, use V&W |
+| Antib. - Az Drops - F   | Y  | pcn-pop-trt[vcUu6ODYhLw] | Use either Y&Z or AA.  If all 3, use Y&Z |
+| Antib. - Az Drops - M   | Z  | pcn-pop-trt[hskrbPDMQ8u] | Use either Y&Z or AA.  If all 3, use Y&Z |
+| Antib. - Az Drops - Unk | AA | pcn-pop-trt[lmiSrZd1dDJ] | Use either Y&Z or AA.  If all 3, use Y&Z |
+| F - time of MDA         | AD | tra-outreach-fc[tra-outreach-fc-mda-time] | LIKE "At time of MDA" |
+| F - school-based        | AD | tra-outreach-fc[tra-outreach-fc-school] | LIKE "School Based" |
+| F - radio/media         | AD | tra-outreach-fc[tra-outreach-fc-media] | LIKE "Radio Message and/or other mass media" |
+| F - CHW                 | AD | tra-outreach-fc[tra-outreach-fc-chw] | LIKE "Village health worker or equivalent" |
+| F - Primary healthcare  | AD | tra-outreach-fc[tra-outreach-fc-primaryhc] | LIKE "Primary healthcare" |
+| F - Other               | AD | tra-outreach-fc[tra-outreach-fc-other] | LIKE "Other" |
+| F - None                | AD | tra-outreach-fc[tra-outreach-fc-none] | LIKE "None" |
+| E - Latrine/NTTF        | AE | tra-outreach-ei[tra-outreach-ei-latrinenttf] | LIKE "Latrine construction by NTTF Member" |
+| E - Water Point/NTTF    | AE | tra-outreach-ei[tra-outreach-ei-waterpointnttf] | LIKE "Water point construction by NTTF member" |
+| E - Latrine/Other       | AE | tra-outreach-ei[tra-outreach-ei-latrineother] | LIKE "Latrine construction by other stakeholders" |
+| E - Water Point/Other   | AE | tra-outreach-ei[tra-outreach-ei-waterpointother] | LIKE "Water point construction by other stakeholders" |
+| E - Comm-led sani       | AE | tra-outreach-ei[tra-outreach-ei-commsani] | LIKE "Community led total sanitation" |
+| E - Other               | AE | tra-outreach-ei[tra-outreach-ei-other] | LIKE "Other" |
+| E - None                | AE | tra-outreach-ei[tra-outreach-ei-none] | LIKE "None" *Added None post export, double check categoryCombo option |
 | Comments                | AF | zknpxa5S7P0[] | |
 
 
