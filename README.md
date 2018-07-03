@@ -140,7 +140,7 @@ Options:
 | E - Comm-led sani       | AE | tra-outreach-ei[tra-outreach-ei-commsani] | LIKE "Community led total sanitation" |
 | E - Other               | AE | tra-outreach-ei[tra-outreach-ei-other] | LIKE "Other" |
 | E - None                | AE | tra-outreach-ei[tra-outreach-ei-none] | LIKE "None" *Added None post export, double check categoryCombo option |
-| Comments                | AF | zknpxa5S7P0[] | |
+| Comments                | AF | comments[] | |
 
 
 ### 5 - Zithromax Application
@@ -165,7 +165,7 @@ Options:
 
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
-| MDA 1 - Date                   | E  | DoE8a6k9C4R[] | |
+| MDA 1 - Date                   | E  | pcn-pcdate[] | |
 | MDA 1 - Pop Targeted / SAC     | G  | Fewjj1kZFy6[age-sac] | |
 | MDA 1 - Pop Targeted / Adult   | H  | Fewjj1kZFy6[yW288iFizUY] | |
 | MDA 1 - Pop Treated / SAC     | K  | BEb0GZkSRPJ[age-sac] | |
@@ -175,7 +175,7 @@ Options:
 
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
-| MDA 2 - Date                   | E  | Dq51uK1OS8i[] | |
+| MDA 2 - Date                   | E  | pcn-pcdate[] | |
 | MDA 2 - Pop Targeted / PreSAC  | F  | knszUMU2VJz[age-presac] | |
 | MDA 2 - Pop Targeted / SAC     | G  | knszUMU2VJz[age-sac] | |
 | MDA 2 - Pop Targeted / Adult   | H  | knszUMU2VJz[yW288iFizUY] | |
@@ -187,7 +187,7 @@ Options:
 
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
-| MDA 3 - Date                   | E  | ktCOzVn5CKC[] | |
+| MDA 3 - Date                   | E  | pcn-pcdate[] | |
 | MDA 3 - Pop Targeted / SAC     | F  | AtIZ8IS3pyd[age-sac] | |
 | MDA 3 - Pop Targeted / Adult   | G  | AtIZ8IS3pyd[yW288iFizUY] | |
 | MDA 3 #1 - Pop Targeted / SAC     | I  | BFUaToyQOwN[age-sac] | |
@@ -246,7 +246,7 @@ Options:
 | T3R2 - Pop Treated / Adult    | M  | dNlHjGevP1d[yW288iFizUY] | |
 
 
-### Joint Request for Selected PC Medicines
+### EPI RF
 
 #### LF
 
@@ -306,3 +306,8 @@ Options:
 | Crab  - Species of vector             | AB  | KZleAN2NyHB |  |
 | Crab  - % MF Positive                 | AC  | zaGCXSvfUUn |  |
 | Programmatic Decision                 | AD  | sG6crE6N2fY |  |
+
+
+### Joint Request for Selected PC Medicines
+
+Coming Soon....

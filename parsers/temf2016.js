@@ -316,7 +316,7 @@ module.exports = function(_params) {
             },
             {
               column: "AF",
-              dataElement: "zknpxa5S7P0"
+              dataElement: "comments"
             }
           ]
         }
