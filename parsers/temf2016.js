@@ -90,12 +90,12 @@ module.exports = function(_params) {
             {
               column: "K",
               dataElement: "d7TTTQDQSEL",
-              categoryOptionCombo: "XxPgNmIyWEx"
+              categoryOptionCombo: "sex-female"
             },
             {
               column: "L",
               dataElement: "d7TTTQDQSEL",
-              categoryOptionCombo: "H8q1t9ex8OR"
+              categoryOptionCombo: "sex-male"
             },
             // whgere is M?
             {

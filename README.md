@@ -111,9 +111,9 @@ Options:
 | TT Age Group            | I  | trch-tt-age[] | String like "F & M ≥ 15", parse to min age |
 | TT Sex                  | I  | trch-tt-sex[] | String like "F & M ≥ 15", parse to sex |
 | TT Data Source          | J  | trch-tt-survey[] | |
-| TT Surgery - F          | K  | trch-surgeries[XxPgNmIyWEx] | |
-| TT Surgery - M          | L  | trch-surgeries[H8q1t9ex8OR] | |
-| Month of MDA            | O  | :fire [] | Sheet has month, translate to date |
+| TT Surgery - F          | K  | trch-surgeries[sex-female] | |
+| TT Surgery - M          | L  | trch-surgeries[sex-male] | |
+| Month of MDA            | O  | :pcn-pcdate[] | Sheet has month, translate to date |
 | Antib. - Az tabs - F    | P  | pcn-pop-trt[xtUty2s6rb9] | Use either P&Q or R.  If all 3, use P&Q |
 | Antib. - Az tabs - M    | Q  | pcn-pop-trt[rVAT5UlKOVq] | Use either P&Q or R.  If all 3, use P&Q |
 | Antib. - Az tabs - Unk  | R  | pcn-pop-trt[uE0CxADyNck] | Use either P&Q or R.  If all 3, use P&Q |
