@@ -56,25 +56,25 @@ module.exports = function(_params) {
             {
               column: "G",
               dataElement: "Fewjj1kZFy6",
-              categoryOptionCombo: "AVegvKfvlnS",
+              categoryOptionCombo: "age-sac",
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "H",
               dataElement: "Fewjj1kZFy6",
-              categoryOptionCombo: "yW288iFizUY",
+              categoryOptionCombo: "age-adult",
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "K",
               dataElement: "BEb0GZkSRPJ",
-              categoryOptionCombo: "AVegvKfvlnS",
+              categoryOptionCombo: "age-sac",
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "L",
               dataElement: "BEb0GZkSRPJ",
-              categoryOptionCombo: "yW288iFizUY",
+              categoryOptionCombo: "age-adult",
               mapping: function(value) {return Math.round(value)}
             }
           ]
@@ -112,38 +112,38 @@ module.exports = function(_params) {
             {
               column: "F",
               dataElement: "knszUMU2VJz",
-              categoryOptionCombo: "clHYCgF9jys",  // PreSAC
+              categoryOptionCombo: "age-presac",  // PreSAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "G",
               dataElement: "knszUMU2VJz",
-              categoryOptionCombo: "AVegvKfvlnS",  // SAC
+              categoryOptionCombo: "age-sac",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "H",
               dataElement: "knszUMU2VJz",
-              categoryOptionCombo: "yW288iFizUY",  // Adult
+              categoryOptionCombo: "age-adult",  // Adult
               mapping: function(value) {return Math.round(value)}
             },
             // Population Treated
             {
               column: "J",
               dataElement: "McBm4Bsq7Qu",
-              categoryOptionCombo: "clHYCgF9jys",  // PreSAC
+              categoryOptionCombo: "age-presac",  // PreSAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "K",
               dataElement: "McBm4Bsq7Qu",
-              categoryOptionCombo: "AVegvKfvlnS",  // SAC
+              categoryOptionCombo: "age-sac",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "L",
               dataElement: "McBm4Bsq7Qu",
-              categoryOptionCombo: "yW288iFizUY",  // Adult
+              categoryOptionCombo: "age-adult",  // Adult
               mapping: function(value) {return Math.round(value)}
             }
 
@@ -182,39 +182,39 @@ module.exports = function(_params) {
             {
               column: "G",
               dataElement: "AtIZ8IS3pyd",
-              categoryOptionCombo: "AVegvKfvlnS",  // SAC
+              categoryOptionCombo: "age-sac",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "H",
               dataElement: "AtIZ8IS3pyd",
-              categoryOptionCombo: "yW288iFizUY",  // Adult
+              categoryOptionCombo: "age-adult",  // Adult
               mapping: function(value) {return Math.round(value)}
             },
             // Population Treated - #1
             {
               column: "I",
               dataElement: "BFUaToyQOwN",
-              categoryOptionCombo: "AVegvKfvlnS",  // SAC
+              categoryOptionCombo: "age-sac",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "J",
               dataElement: "BFUaToyQOwN",
-              categoryOptionCombo: "yW288iFizUY",  // Adult
+              categoryOptionCombo: "age-adult",  // Adult
               mapping: function(value) {return Math.round(value)}
             },
             // Population Treated - #2
             {
               column: "L",
               dataElement: "yn8ZrOTU6cV",
-              categoryOptionCombo: "AVegvKfvlnS",  // SAC
+              categoryOptionCombo: "age-sac",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "M",
               dataElement: "yn8ZrOTU6cV",
-              categoryOptionCombo: "yW288iFizUY",  // Adult
+              categoryOptionCombo: "age-adult",  // Adult
               mapping: function(value) {return Math.round(value)}
             }
           ]
@@ -276,19 +276,19 @@ module.exports = function(_params) {
             {
               column: "F",
               dataElement: "Xk4IHafTNfW",
-              categoryOptionCombo: "clHYCgF9jys",  // PreSAC
+              categoryOptionCombo: "age-presac",  // PreSAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "G",
               dataElement: "Xk4IHafTNfW",
-              categoryOptionCombo: "AVegvKfvlnS",  // SAC
+              categoryOptionCombo: "age-sac",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "H",
               dataElement: "Xk4IHafTNfW",
-              categoryOptionCombo: "yW288iFizUY",  // Adult
+              categoryOptionCombo: "age-adult",  // Adult
               mapping: function(value) {return Math.round(value)}
             }
           ]
@@ -327,38 +327,38 @@ module.exports = function(_params) {
             {
               column: "F",
               dataElement: "nXCbgQjGEf7",
-              categoryOptionCombo: "clHYCgF9jys",  // PreSAC
+              categoryOptionCombo: "age-presac",  // PreSAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "G",
               dataElement: "nXCbgQjGEf7",
-              categoryOptionCombo: "AVegvKfvlnS",  // SAC
+              categoryOptionCombo: "age-sac",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "H",
               dataElement: "nXCbgQjGEf7",
-              categoryOptionCombo: "yW288iFizUY",  // Adult
+              categoryOptionCombo: "age-adult",  // Adult
               mapping: function(value) {return Math.round(value)}
             },
             // Population Treated
             {
               column: "J",
               dataElement: "xmJ0f5OzOVe",
-              categoryOptionCombo: "clHYCgF9jys",  // PreSAC
+              categoryOptionCombo: "age-presac",  // PreSAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "K",
               dataElement: "xmJ0f5OzOVe",
-              categoryOptionCombo: "AVegvKfvlnS",  // SAC
+              categoryOptionCombo: "age-sac",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "L",
               dataElement: "xmJ0f5OzOVe",
-              categoryOptionCombo: "yW288iFizUY",  // Adult
+              categoryOptionCombo: "age-adult",  // Adult
               mapping: function(value) {return Math.round(value)}
             }
           ]
@@ -408,38 +408,38 @@ module.exports = function(_params) {
             {
               column: "G",
               dataElement: "QNO43BaqL3B",
-              categoryOptionCombo: "clHYCgF9jys",  // PreSAC
+              categoryOptionCombo: "age-presac",  // PreSAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "H",
               dataElement: "QNO43BaqL3B",
-              categoryOptionCombo: "AVegvKfvlnS",  // SAC
+              categoryOptionCombo: "age-sac",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "I",
               dataElement: "QNO43BaqL3B",
-              categoryOptionCombo: "yW288iFizUY",  // Adult
+              categoryOptionCombo: "age-adult",  // Adult
               mapping: function(value) {return Math.round(value)}
             },
             // Population Treated
             {
               column: "K",
               dataElement: "SlpX7bo7ZDU",
-              categoryOptionCombo: "clHYCgF9jys",  // PreSAC
+              categoryOptionCombo: "age-presac",  // PreSAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "L",
               dataElement: "SlpX7bo7ZDU",
-              categoryOptionCombo: "AVegvKfvlnS",  // SAC
+              categoryOptionCombo: "age-sac",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "M",
               dataElement: "SlpX7bo7ZDU",
-              categoryOptionCombo: "yW288iFizUY",  // Adult
+              categoryOptionCombo: "age-adult",  // Adult
               mapping: function(value) {return Math.round(value)}
             }
           ]
@@ -489,38 +489,38 @@ module.exports = function(_params) {
             {
               column: "G",
               dataElement: "iKHUsxY44Du",
-              categoryOptionCombo: "clHYCgF9jys",  // PreSAC
+              categoryOptionCombo: "age-presac",  // PreSAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "H",
               dataElement: "iKHUsxY44Du",
-              categoryOptionCombo: "AVegvKfvlnS",  // SAC
+              categoryOptionCombo: "age-sac",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "I",
               dataElement: "iKHUsxY44Du",
-              categoryOptionCombo: "yW288iFizUY",  // Adult
+              categoryOptionCombo: "age-adult",  // Adult
               mapping: function(value) {return Math.round(value)}
             },
             // Population Treated
             {
               column: "K",
               dataElement: "dNlHjGevP1d",
-              categoryOptionCombo: "clHYCgF9jys",  // PreSAC
+              categoryOptionCombo: "age-presac",  // PreSAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "L",
               dataElement: "dNlHjGevP1d",
-              categoryOptionCombo: "AVegvKfvlnS",  // SAC
+              categoryOptionCombo: "age-sac",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "M",
               dataElement: "dNlHjGevP1d",
-              categoryOptionCombo: "yW288iFizUY",  // Adult
+              categoryOptionCombo: "age-adult",  // Adult
               mapping: function(value) {return Math.round(value)}
             }
           ]
