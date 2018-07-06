@@ -145,18 +145,7 @@ Options:
 
 ### 5 - Zithromax Application
 
-| Name    | Column  | Mapping | Logic |
-| ------- | ------- | ------- | ----- |
-| Geoconnect ID           | D  | Organization.attributes['Geoconnect ID']  | |
-| Intervention Status     | K  | yD4patF6TMc[] | |
-| Treatment Request       | L  | XpXE3AYoW4V[] | |
-| MDA Partner             | M  | qXfluft9WvF[] | |
-| Month of MDA            | N  | pcn-pcdate[] | |
-| MDA Funding approved    | O  | HDIz3YLsw73[] | |
-| MDA Funding source      | P  | dEFippgWHZi[] | |
-| Next impact survey year | Q  | fY74mfHG6Xr[] | |
-| Next impact survey month| R  | QZpTVwpsbw1[] | |
-
+Postponed
 
 
 ### Joint Reporting Form
@@ -165,35 +154,35 @@ Options:
 
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
-| MDA 1 - Date                   | E  | pcn-pcdate[] | |
-| MDA 1 - Pop Targeted / SAC     | G  | Fewjj1kZFy6[age-sac] | |
-| MDA 1 - Pop Targeted / Adult   | H  | Fewjj1kZFy6[yW288iFizUY] | |
-| MDA 1 - Pop Treated / SAC     | K  | BEb0GZkSRPJ[age-sac] | |
-| MDA 1 - Pop Treated / Adult   | L  | BEb0GZkSRPJ[yW288iFizUY] | |
+| MDA 1 - Date                   | E  | pcn-pcdate[pcnd-int-ivmalb] | |
+| MDA 1 - Pop Targeted / SAC     | G  | pcn-pop-trgt[pcnd-int-ivmalb-age-sac-sex-unknown] | |
+| MDA 1 - Pop Targeted / Adult   | H  | pcn-pop-trgt[pcnd-int-ivmalb-age-adult-sex-unknown] | |
+| MDA 1 - Pop Treated / SAC     | K  | pcn-pop-trt[pcnd-int-ivmalb-age-sac-sex-unknown] | |
+| MDA 1 - Pop Treated / Adult   | L  | pcn-pop-trt[pcnd-int-ivmalb-age-adult-sex-unknown] | |
 
 #### MDA2
 
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
-| MDA 2 - Date                   | E  | pcn-pcdate[] | |
-| MDA 2 - Pop Targeted / PreSAC  | F  | knszUMU2VJz[age-presac] | |
-| MDA 2 - Pop Targeted / SAC     | G  | knszUMU2VJz[age-sac] | |
-| MDA 2 - Pop Targeted / Adult   | H  | knszUMU2VJz[yW288iFizUY] | |
-| MDA 2 - Pop Treated / PreSAC   | J  | McBm4Bsq7Qu[age-presac] | |
-| MDA 2 - Pop Treated / SAC      | K  | McBm4Bsq7Qu[age-sac] | |
-| MDA 2 - Pop Treated / Adult    | L  | McBm4Bsq7Qu[yW288iFizUY] | |
+| MDA 2 - Date                   | E  | pcn-pcdate[pcnd-int-decalb] | |
+| MDA 2 - Pop Targeted / PreSAC  | F  | pcn-pop-trgt[pcnd-int-decalb-age-presac-sex-unknown] | |
+| MDA 2 - Pop Targeted / SAC     | G  | pcn-pop-trgt[pcnd-int-decalb-age-sac-sex-unknown] | |
+| MDA 2 - Pop Targeted / Adult   | H  | pcn-pop-trgt[pcnd-int-decalb-age-adult-sex-unknown] | |
+| MDA 2 - Pop Treated / PreSAC   | J  | pcn-pop-trt[pcnd-int-decalb-age-presac-sex-unknown] | |
+| MDA 2 - Pop Treated / SAC      | K  | pcn-pop-trt[pcnd-int-decalb-age-sac-sex-unknown] | |
+| MDA 2 - Pop Treated / Adult    | L  | pcn-pop-trt[pcnd-int-decalb-age-adult-sex-unknown] | |
 
 #### MDA3
 
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
-| MDA 3 - Date                   | E  | pcn-pcdate[] | |
-| MDA 3 - Pop Targeted / SAC     | F  | AtIZ8IS3pyd[age-sac] | |
-| MDA 3 - Pop Targeted / Adult   | G  | AtIZ8IS3pyd[yW288iFizUY] | |
-| MDA 3 #1 - Pop Targeted / SAC     | I  | BFUaToyQOwN[age-sac] | |
-| MDA 3 #1 - Pop Targeted / Adult   | J  | BFUaToyQOwN[yW288iFizUY] | |
-| MDA 3 #2 - Pop Targeted / SAC     | L  | yn8ZrOTU6cV[age-sac] | |
-| MDA 3 #2 - Pop Targeted / Adult   | M  | yn8ZrOTU6cV[yW288iFizUY] | |
+| MDA 3 - Date                   | E  | pcn-pcdate[pcnd-int-ivm] | |
+| MDA 3 - Pop Targeted / SAC     | F  | pcn-pop-trgt[pcnd-int-ivm-age-sac-sex-unknown-sac] | |
+| MDA 3 - Pop Targeted / Adult   | G  | pcn-pop-trgt[pcnd-int-ivm-age-adult-sex-unknown] | |
+| MDA 3 #1 - Pop Targeted / SAC     | I  | pcn-pop-trgt[xxxxxxxx] | |
+| MDA 3 #1 - Pop Targeted / Adult   | J  | pcn-pop-trgt[xxxxxxxx] | |
+| MDA 3 #2 - Pop Targeted / SAC     | L  | pcn-pop-trgt[xxxxxxxx] | |
+| MDA 3 #2 - Pop Targeted / Adult   | M  | pcn-pop-trgt[xxxxxxxx] | |
 
 #### T1
 
@@ -201,49 +190,25 @@ Options:
 | ------- | ------- | ------- | ----- |
 | T1 - Date                   | F  | Myt2Cf5A5ik[] | |
 | T1 - Medicine Selection     | E  | cx7mIjgV6m1[] | |
-| T1 - Pop Targeted / SAC-ALB | H  | dsEgJ1Dxrg3[O4UwQ6XVJmU] | |
-| T1 - Pop Targeted / SAC-PZQ | I  | dsEgJ1Dxrg3[RSDW04F7B7O] | |
-| T1 - Pop Treated / PreSAC   | F  | Xk4IHafTNfW[age-presac] | |
-| T1 - Pop Treated / SAC      | G  | Xk4IHafTNfW[age-sac] | |
-| T1 - Pop Treated / Adult    | H  | Xk4IHafTNfW[yW288iFizUY] | |
+| T1 - Pop Targeted / SAC-ALB | H  | pcn-pop-trgt[O4UwQ6XVJmU] | |
+| T1 - Pop Targeted / SAC-PZQ | I  | pcn-pop-trgt[RSDW04F7B7O] | |
+| T1 - Pop Treated / PreSAC   | F  | pcn-pop-trt[xxxxxxxx] | |
+| T1 - Pop Treated / SAC      | G  | pcn-pop-trt[xxxxxxxx] | |
+| T1 - Pop Treated / Adult    | H  | pcn-pop-trt[xxxxxxxx] | |
 
 #### T2
 
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
-| T2 - Date                   | E  | Dq51uK1OS8i[] | |
-| T2 - Pop Targeted / PreSAC  | F  | nXCbgQjGEf7[age-presac] | |
-| T2 - Pop Targeted / SAC     | G  | nXCbgQjGEf7[age-sac] | |
-| T2 - Pop Targeted / Adult   | H  | nXCbgQjGEf7[yW288iFizUY] | |
-| T2 - Pop Treated / PreSAC   | J  | xmJ0f5OzOVe[age-presac] | |
-| T2 - Pop Treated / SAC      | K  | xmJ0f5OzOVe[age-sac] | |
-| T2 - Pop Treated / Adult    | L  | xmJ0f5OzOVe[yW288iFizUY] | |
+| T2 - Date                   | E  | pcn-pcdate[pcnd-int-pzq] | |
+| T2 - Pop Targeted / PreSAC  | F  | pcn-pop-trgt[pcnd-int-pzq-age-presac-sex-unknown] | |
+| T2 - Pop Targeted / SAC     | G  | pcn-pop-trgt[pcnd-int-pzq-age-sac-sex-unknown] | |
+| T2 - Pop Targeted / Adult   | H  | pcn-pop-trgt[pcnd-int-pzq-age-adult-sex-unknown] | |
+| T2 - Pop Treated / PreSAC   | J  | pcn-pop-trt[pcnd-int-pzq-age-presac-sex-unknown] | |
+| T2 - Pop Treated / SAC      | K  | pcn-pop-trt[pcnd-int-pzq-age-sac-sex-unknown] | |
+| T2 - Pop Treated / Adult    | L  | pcn-pop-trt[pcnd-int-pzq-age-adult-sex-unknown] | |
 
-#### T3_R1
 
-| Name    | Column  | Mapping | Logic |
-| ------- | ------- | ------- | ----- |
-| T3R1 - Date                   | F  | I0HzUP1djpJ[] | |
-| T3R1 - Medicine Selection     | E  | uaCLJBX6YC5[] | |
-| T3R1 - Pop Targeted / PreSAC  | G  | QNO43BaqL3B[age-presac] | |
-| T3R1 - Pop Targeted / SAC     | H  | QNO43BaqL3B[age-sac] | |
-| T3R1 - Pop Targeted / Adult   | I  | QNO43BaqL3B[yW288iFizUY] | |
-| T3R1 - Pop Treated / PreSAC   | K  | SlpX7bo7ZDU[age-presac] | |
-| T3R1 - Pop Treated / SAC      | L  | SlpX7bo7ZDU[age-sac] | |
-| T3R1 - Pop Treated / Adult    | M  | SlpX7bo7ZDU[yW288iFizUY] | |
-
-#### T3_R2
-
-| Name    | Column  | Mapping | Logic |
-| ------- | ------- | ------- | ----- |
-| T3R2 - Date                   | F  | k8dqjv7btGO[] | |
-| T3R2 - Medicine Selection     | E  | l576SEiEppI[] | |
-| T3R2 - Pop Targeted / PreSAC  | G  | iKHUsxY44Du[age-presac] | |
-| T3R2 - Pop Targeted / SAC     | H  | iKHUsxY44Du[age-sac] | |
-| T3R2 - Pop Targeted / Adult   | I  | iKHUsxY44Du[yW288iFizUY] | |
-| T3R2 - Pop Treated / PreSAC   | K  | dNlHjGevP1d[age-presac] | |
-| T3R2 - Pop Treated / SAC      | L  | dNlHjGevP1d[age-sac] | |
-| T3R2 - Pop Treated / Adult    | M  | dNlHjGevP1d[yW288iFizUY] | |
 
 
 ### EPI RF
