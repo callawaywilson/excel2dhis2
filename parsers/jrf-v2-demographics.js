@@ -33,7 +33,7 @@ module.exports = function(_params) {
             // Population - PreSAC
             {
               column: "E",
-              dataElement: "ntd-pop",
+              dataElement: "pcn-pop",
               categoryOptionCombo: "age-presac",
               mapping: function(value, row) {
                 return Math.round(Number.parseFloat(value));
@@ -42,7 +42,7 @@ module.exports = function(_params) {
             // Population - SAC
             {
               column: "F",
-              dataElement: "ntd-pop",
+              dataElement: "pcn-pop",
               categoryOptionCombo: "age-sac",
               mapping: function(value, row) {
                 return Math.round(Number.parseFloat(value));
@@ -51,7 +51,7 @@ module.exports = function(_params) {
             // Population - Adults
             {
               column: "G",
-              dataElement: "ntd-pop",
+              dataElement: "pcn-pop",
               categoryOptionCombo: "age-adult",
               mapping: function(value, row) {
                 return Math.round(Number.parseFloat(value));

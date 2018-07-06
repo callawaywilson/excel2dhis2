@@ -85,9 +85,9 @@ Options:
 
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
-| Population - PreSAC         | E  | ntd-pop[age-presac] | |
-| Population - SAC            | F  | ntd-pop[age-sac] | |
-| Population - Adults         | G  | ntd-pop[age-adult] | |
+| Population - PreSAC         | E  | pcn-pop[age-presac] | |
+| Population - SAC            | F  | pcn-pop[age-sac] | |
+| Population - Adults         | G  | pcn-pop[age-adult] | |
 | Prevalence - LF             | H  | pcn-prevalence[pc-ntd-lf] | |
 | Prevalence - Oncho          | I  | pcn-prevalence[pc-ntd-ov] | |
 | Prevalence - STH            | J  | pcn-prevalence[pc-ntd-sth] | |
@@ -113,7 +113,7 @@ Options:
 | TT Data Source          | J  | trch-tt-survey[] | |
 | TT Surgery - F          | K  | trch-surgeries[sex-female] | |
 | TT Surgery - M          | L  | trch-surgeries[sex-male] | |
-| Month of MDA            | O  | :pcn-pcdate[] | Sheet has month, translate to date |
+| Month of MDA            | O  | pcn-pcdate[] | Sheet has month, translate to date |
 | Antib. - Az tabs - F    | P  | pcn-pop-trt[pcnd-int-az-tabs-age-unknown-sex-female] | Use either P&Q or R.  If all 3, use P&Q |
 | Antib. - Az tabs - M    | Q  | pcn-pop-trt[pcnd-int-az-tabs-age-unknown-sex-male] | Use either P&Q or R.  If all 3, use P&Q |
 | Antib. - Az tabs - Unk  | R  | pcn-pop-trt[pcnd-int-az-tabs-age-unknown-sex-unknown] | Use either P&Q or R.  If all 3, use P&Q |
