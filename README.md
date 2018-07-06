@@ -114,18 +114,18 @@ Options:
 | TT Surgery - F          | K  | trch-surgeries[sex-female] | |
 | TT Surgery - M          | L  | trch-surgeries[sex-male] | |
 | Month of MDA            | O  | :pcn-pcdate[] | Sheet has month, translate to date |
-| Antib. - Az tabs - F    | P  | pcn-pop-trt[xtUty2s6rb9] | Use either P&Q or R.  If all 3, use P&Q |
-| Antib. - Az tabs - M    | Q  | pcn-pop-trt[rVAT5UlKOVq] | Use either P&Q or R.  If all 3, use P&Q |
-| Antib. - Az tabs - Unk  | R  | pcn-pop-trt[uE0CxADyNck] | Use either P&Q or R.  If all 3, use P&Q |
-| Antib. - Az Oral - F    | S  | pcn-pop-trt[AkUk2I8UYdo] | Use either S&T or U.  If all 3, use S&T |
-| Antib. - Az Oral - M    | T  | pcn-pop-trt[ueQESuOZbTK] | Use either S&T or U.  If all 3, use S&T |
-| Antib. - Az Oral - Unk  | U  | pcn-pop-trt[VDJkgG8WuMr] | Use either S&T or U.  If all 3, use S&T |
-| Antib. - Tet Oin - F    | V  | pcn-pop-trt[igXj2FYlmQ3] | Use either V&W or X.  If all 3, use V&W |
-| Antib. - Tet Oin - M    | W  | pcn-pop-trt[GoajnE9epLK] | Use either V&W or X.  If all 3, use V&W |
-| Antib. - Tet Oin - Unk  | X  | pcn-pop-trt[VnTPvQznpOf] | Use either V&W or X.  If all 3, use V&W |
-| Antib. - Az Drops - F   | Y  | pcn-pop-trt[vcUu6ODYhLw] | Use either Y&Z or AA.  If all 3, use Y&Z |
-| Antib. - Az Drops - M   | Z  | pcn-pop-trt[hskrbPDMQ8u] | Use either Y&Z or AA.  If all 3, use Y&Z |
-| Antib. - Az Drops - Unk | AA | pcn-pop-trt[lmiSrZd1dDJ] | Use either Y&Z or AA.  If all 3, use Y&Z |
+| Antib. - Az tabs - F    | P  | pcn-pop-trt[pcnd-int-az-tabs-age-unknown-sex-female] | Use either P&Q or R.  If all 3, use P&Q |
+| Antib. - Az tabs - M    | Q  | pcn-pop-trt[pcnd-int-az-tabs-age-unknown-sex-male] | Use either P&Q or R.  If all 3, use P&Q |
+| Antib. - Az tabs - Unk  | R  | pcn-pop-trt[pcnd-int-az-tabs-age-unknown-sex-unknown] | Use either P&Q or R.  If all 3, use P&Q |
+| Antib. - Az Oral - F    | S  | pcn-pop-trt[pcnd-int-az-oral-age-unknown-sex-female] | Use either S&T or U.  If all 3, use S&T |
+| Antib. - Az Oral - M    | T  | pcn-pop-trt[pcnd-int-az-oral-age-unknown-sex-male] | Use either S&T or U.  If all 3, use S&T |
+| Antib. - Az Oral - Unk  | U  | pcn-pop-trt[pcnd-int-az-oral-age-unknown-sex-unknown] | Use either S&T or U.  If all 3, use S&T |
+| Antib. - Tet Oin - F    | V  | pcn-pop-trt[pcnd-int-teo-age-unknown-sex-female] | Use either V&W or X.  If all 3, use V&W |
+| Antib. - Tet Oin - M    | W  | pcn-pop-trt[pcnd-int-teo-age-unknown-sex-male] | Use either V&W or X.  If all 3, use V&W |
+| Antib. - Tet Oin - Unk  | X  | pcn-pop-trt[pcnd-int-teo-age-unknown-sex-unknown] | Use either V&W or X.  If all 3, use V&W |
+| Antib. - Az Drops - F   | Y  | pcn-pop-trt[pcnd-int-az-drops-age-unknown-sex-female] | Use either Y&Z or AA.  If all 3, use Y&Z |
+| Antib. - Az Drops - M   | Z  | pcn-pop-trt[pcnd-int-az-drops-age-unknown-sex-male] | Use either Y&Z or AA.  If all 3, use Y&Z |
+| Antib. - Az Drops - Unk | AA | pcn-pop-trt[pcnd-int-az-drops-age-unknown-sex-unknown] | Use either Y&Z or AA.  If all 3, use Y&Z |
 | F - time of MDA         | AD | tra-outreach-fc[tra-outreach-fc-mda-time] | LIKE "At time of MDA" |
 | F - school-based        | AD | tra-outreach-fc[tra-outreach-fc-school] | LIKE "School Based" |
 | F - radio/media         | AD | tra-outreach-fc[tra-outreach-fc-media] | LIKE "Radio Message and/or other mass media" |

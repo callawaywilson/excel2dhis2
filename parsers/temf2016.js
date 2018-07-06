@@ -116,20 +116,20 @@ module.exports = function(_params) {
             {
               column: "P",
               dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "xtUty2s6rb9"
+              categoryOptionCombo: "pcnd-int-az-tabs-age-unknown-sex-female" //females
             },
             {
               column: "Q",
               dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "rVAT5UlKOVq"
+              categoryOptionCombo: "pcnd-int-az-tabs-age-unknown-sex-male" //males
             },
             {
               column: "R",
               dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "uE0CxADyNck",
+              categoryOptionCombo: "pcnd-int-az-tabs-age-unknown-sex-unknown",
               mapping: function(value, row) {
-                if (!rowElementValue(row, "pcn-pop-trt", "xtUty2s6rb9") &&
-                   !rowElementValue(row, "pcn-pop-trt", "uE0CxADyNck")) {
+                if (!rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-tabs-age-unknown-sex-female") &&
+                   !rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-tabs-age-unknown-sex-male")) {
                   return value;
                 }
               }
@@ -138,20 +138,20 @@ module.exports = function(_params) {
             {
               column: "S",
               dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "AkUk2I8UYdo"
+              categoryOptionCombo: "pcnd-int-az-oral-age-unknown-sex-female" //female
             },
             {
               column: "T",
               dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "ueQESuOZbTK"
+              categoryOptionCombo: "pcnd-int-az-oral-age-unknown-sex-male" //male
             },
             {
               column: "U",
               dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "VDJkgG8WuMr",
+              categoryOptionCombo: "pcnd-int-az-oral-age-unknown-sex-unknown",
               mapping: function(value, row) {
-                if (!rowElementValue(row, "pcn-pop-trt", "AkUk2I8UYdo") &&
-                   !rowElementValue(row, "pcn-pop-trt", "ueQESuOZbTK")) {
+                if (!rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-oral-age-unknown-sex-female") &&
+                   !rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-oral-age-unknown-sex-male")) {
                   return value;
                 }
               }
@@ -160,20 +160,20 @@ module.exports = function(_params) {
             {
               column: "V",
               dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "igXj2FYlmQ3"
+              categoryOptionCombo: "pcnd-int-teo-age-unknown-sex-female" //female
             },
             {
               column: "W",
               dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "GoajnE9epLK"
+              categoryOptionCombo: "pcnd-int-teo-age-unknown-sex-male" //male
             },
             {
               column: "X",
               dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "VnTPvQznpOf",
+              categoryOptionCombo: "pcnd-int-teo-age-unknown-sex-unknown", //unknown
               mapping: function(value, row) {
-                if (!rowElementValue(row, "pcn-pop-trt", "igXj2FYlmQ3") &&
-                   !rowElementValue(row, "pcn-pop-trt", "GoajnE9epLK")) {
+                if (!rowElementValue(row, "pcn-pop-trt", "pcnd-int-teo-age-unknown-sex-female") &&
+                   !rowElementValue(row, "pcn-pop-trt", "pcnd-int-teo-age-unknown-sex-male")) {
                   return value;
                 }
               }
@@ -182,20 +182,20 @@ module.exports = function(_params) {
             {
               column: "V",
               dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "vcUu6ODYhLw"
+              categoryOptionCombo: "pcnd-int-az-drops-age-unknown-sex-female"
             },
             {
               column: "W",
               dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "hskrbPDMQ8u"
+              categoryOptionCombo: "pcnd-int-az-drops-age-unknown-sex-male"
             },
             {
               column: "X",
               dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "lmiSrZd1dDJ",
+              categoryOptionCombo: "pcnd-int-az-drops-age-unknown-sex-unknown",
               mapping: function(value, row) {
-                if (!rowElementValue(row, "pcn-pop-trt", "vcUu6ODYhLw") &&
-                   !rowElementValue(row, "pcn-pop-trt", "hskrbPDMQ8u")) {
+                if (!rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-drops-age-unknown-sex-female") &&
+                   !rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-drops-age-unknown-sex-male")) {
                   return value;
                 }
               }
