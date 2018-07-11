@@ -179,22 +179,22 @@ Postponed
 | MDA 3 - Date                   | E  | pcn-pcdate[pcnd-int-ivm] | |
 | MDA 3 - Pop Targeted / SAC     | F  | pcn-pop-trgt[pcnd-int-ivm-age-sac-sex-unknown-sac] | |
 | MDA 3 - Pop Targeted / Adult   | G  | pcn-pop-trgt[pcnd-int-ivm-age-adult-sex-unknown] | |
-| MDA 3 #1 - Pop Targeted / SAC     | I  | pcn-pop-trgt[xxxxxxxx] | |
-| MDA 3 #1 - Pop Targeted / Adult   | J  | pcn-pop-trgt[xxxxxxxx] | |
-| MDA 3 #2 - Pop Targeted / SAC     | L  | pcn-pop-trgt[xxxxxxxx] | |
-| MDA 3 #2 - Pop Targeted / Adult   | M  | pcn-pop-trgt[xxxxxxxx] | |
+| MDA 3 #1 - Pop Treated / SAC     | I  | pcn-pop-trt[pcnd-int-ivm-age-sac-sex-unknown] | |
+| MDA 3 #1 - Pop Treated / Adult   | J  | pcn-pop-trt[pcnd-int-ivm-age-adult-sex-unknown] | |
+| MDA 3 #2 - Pop Treated / SAC     | L  | pcn-pop-trt[pcnd-int-ivm-r2-age-sac-sex-unknown] | |
+| MDA 3 #2 - Pop Treated / Adult   | M  | pcn-pop-trt[pcnd-int-ivm-r2-age-adult-sex-unknown] | |
 
 #### T1
 
 | Name    | Column  | Mapping | Logic |
 | ------- | ------- | ------- | ----- |
-| T1 - Date                   | F  | Myt2Cf5A5ik[] | |
-| T1 - Medicine Selection     | E  | cx7mIjgV6m1[] | |
-| T1 - Pop Targeted / SAC-ALB | H  | pcn-pop-trgt[O4UwQ6XVJmU] | |
-| T1 - Pop Targeted / SAC-PZQ | I  | pcn-pop-trgt[RSDW04F7B7O] | |
-| T1 - Pop Treated / PreSAC   | F  | pcn-pop-trt[xxxxxxxx] | |
-| T1 - Pop Treated / SAC      | G  | pcn-pop-trt[xxxxxxxx] | |
-| T1 - Pop Treated / Adult    | H  | pcn-pop-trt[xxxxxxxx] | |
+| T1 - Date                   | F  | pcn-pcdate[pcnd-int-pzqmvd] | |
+| T1 - Medicine Selection     | E  | xxxxxx[] | |
+| T1 - Pop Targeted / SAC-ALB | H  | pcn-pop-trgt[pcnd-int-alb-age-sac-sex-unknown] | |
+| T1 - Pop Targeted / SAC-PZQ | I  | pcn-pop-trgt[pcnd-int-pzq-age-sac-sex-unknown] | |
+| T1 - Pop Treated / PreSAC   | F  | pcn-pop-trt[age-presac] | |
+| T1 - Pop Treated / SAC      | G  | pcn-pop-trt[age-sac] | |
+| T1 - Pop Treated / Adult    | H  | pcn-pop-trt[age-adult] | |
 
 #### T2
 

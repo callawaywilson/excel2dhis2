@@ -197,27 +197,27 @@ module.exports = function(_params) {
             // Population Treated - #1
             {
               column: "I",
-              dataElement: "BFUaToyQOwN",
-              categoryOptionCombo: "age-sac",  // SAC
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-ivm-age-sac-sex-unknown",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "J",
-              dataElement: "BFUaToyQOwN",
-              categoryOptionCombo: "age-adult",  // Adult
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-ivm-age-adult-sex-unknown",  // Adult
               mapping: function(value) {return Math.round(value)}
             },
             // Population Treated - #2
             {
               column: "L",
               dataElement: "yn8ZrOTU6cV",
-              categoryOptionCombo: "age-sac",  // SAC
+              categoryOptionCombo: "pcnd-int-ivm-r2-age-sac-sex-unknown",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "M",
               dataElement: "yn8ZrOTU6cV",
-              categoryOptionCombo: "age-adult",  // Adult
+              categoryOptionCombo: "pcnd-int-ivm-r2-age-adult-sex-unknown",  // Adult
               mapping: function(value) {return Math.round(value)}
             }
           ]
@@ -244,21 +244,22 @@ module.exports = function(_params) {
               variable: "district",
               orgUnit: null
             },
-            {
-              column: "E",
-              dataElement: "cx7mIjgV6m1",
-              mapping: function(value, row) {
-                if ((value || "").match(/mbd/i)) {
-                  return 'mbd';
-                } else if ((value || "").match(/alb/i)) {
-                  return 'alb'
-                }
-              }
-            },
+            // removed for june
+            // {
+            //   column: "E",
+            //   dataElement: "cx7mIjgV6m1", // medicine used
+            //   mapping: function(value, row) {
+            //     if ((value || "").match(/mbd/i)) {
+            //       return 'mbd';
+            //     } else if ((value || "").match(/alb/i)) {
+            //       return 'alb'
+            //     }
+            //   }
+            // },
             {
               column: "F",
               dataElement: "pcn-pcdate",
-              categoryOptionCombo: "Myt2Cf5A5ik",
+              categoryOptionCombo: "pcnd-int-pzqmvd",
               mapping: function(value, row) {
                 return moment(new Date(1899, 12, value - 1)).format('YYYY-MM-DD');
               }
