@@ -32,7 +32,7 @@ module.exports = function(_params) {
             },
             orgUnit: findOrg,
           },
-          mappings: [
+          dataValues: [
             {
               column: "A",
               variable: "zone",
