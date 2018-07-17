@@ -1,5 +1,7 @@
 # Logs
 logs
+output.json
+orgunits.json
 *.log
 npm-debug.log*
 yarn-debug.log*
