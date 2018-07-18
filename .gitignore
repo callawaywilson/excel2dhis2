@@ -1,6 +1,7 @@
 # Logs
 logs
 output.json
+output.xml
 orgunits.json
 *.log
 npm-debug.log*

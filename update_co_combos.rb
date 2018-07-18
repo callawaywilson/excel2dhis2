@@ -35,6 +35,7 @@ def set_ntdcode! obj, value
   obj['attributeValues'] = [] if obj['attributeValues'].nil?
   obj['attributeValues'].delete_if{|v| v['attribute']['id'] == @ntdcode_id}
   obj['attributeValues'] << {"value" => value, "attribute" => {"id" => @ntdcode_id}}
+  obj['code'] = value
   return obj
 end
 
