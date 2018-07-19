@@ -29,7 +29,9 @@ var orgTree = require('./orgunittree.js')(orgUnits, {
 var parser = require('./' + (argv['p'] || argv['parser']))({
   period: (argv['t'] || argv['period']),
   orgUnits: orgUnits,
-  orgTree: orgTree
+  orgTree: orgTree,
+  defaultCategoryOptionCombo: 'default',
+  defaultAttributeOptionCombo: 'default'
 });
 
 // Run the parser sheets on the appropriate workbook sheets
