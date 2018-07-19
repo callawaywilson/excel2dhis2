@@ -302,7 +302,7 @@ module.exports = function(_params) {
             },
             {
               column: "AF",
-              dataElement: "comments"
+              dataElement: "pcn-comments"
             }
           ]
         }
@@ -319,7 +319,7 @@ module.exports = function(_params) {
             },
             orgUnit: findOrg,
           },
-          mappings: [
+          dataValues: [
             {
               column: "A",
               variable: "zone",
