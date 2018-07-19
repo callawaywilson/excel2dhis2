@@ -1,6 +1,6 @@
 # Logs
 logs
-output.json
+*output.json
 output.xml
 orgunits.json
 *.log
