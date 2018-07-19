@@ -20,8 +20,8 @@ module.exports = function(_params) {
     params: params,
     definition: {
       defaults: {
-        categoryOptionCombo: "HllvX50cXC0",
-        attributeOptionCombo: "HllvX50cXC0",
+        categoryOptionCombo: params.defaultCategoryOptionCombo,
+        attributeOptionCombo: params.defaultAttributeOptionCombo
       }
     },
     sheets: [
@@ -210,13 +210,13 @@ module.exports = function(_params) {
             // Population Treated - #2
             {
               column: "L",
-              dataElement: "yn8ZrOTU6cV",
+              dataElement: "pcn-pop-trt",
               categoryOptionCombo: "pcnd-int-ivm-r2-age-sac-sex-unknown",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
               column: "M",
-              dataElement: "yn8ZrOTU6cV",
+              dataElement: "pcn-pop-trt",
               categoryOptionCombo: "pcnd-int-ivm-r2-age-adult-sex-unknown",  // Adult
               mapping: function(value) {return Math.round(value)}
             }
@@ -363,7 +363,7 @@ module.exports = function(_params) {
             },
             {
               column: "K",
-              dataElement: "pcnd-int-pzq-age-sac-sex-unknown",
+              dataElement: "pcn-pop-trt",
               categoryOptionCombo: "age-sac",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
