@@ -67,21 +67,7 @@ module.exports = function(_params) {
             },
             {
               column: "I",
-              dataElement: "trch-tt-age",
-              mapping: function(value, row) {
-                if (/(\d+)/.test(value))
-                  return /(\d+)/.exec(value)[1]
-              }
-            },
-            {
-              column: "I",
-              dataElement: "trch-tt-sex",
-              mapping: function(value, row) {
-                var sex = "";
-                if (/F/i.test(value)) sex += 'f';
-                if (/M/i.test(value)) sex += 'm';
-                return sex;
-              }
+              dataElement: "trch-tt-survey-demo"
             },
             {
               column: "J",
