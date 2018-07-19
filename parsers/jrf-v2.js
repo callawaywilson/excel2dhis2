@@ -476,7 +476,7 @@ module.exports = function(_params) {
         lookup[geoAttr.value] = {
           id: orgUnit.id,
           name: orgUnit.name,
-          spellings: orgNames(orgUnit),
+          //spellings: orgNames(orgUnit),
           path: orgUnit.path
         }
       }
