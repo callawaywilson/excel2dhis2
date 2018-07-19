@@ -341,56 +341,15 @@ module.exports = function(_params) {
               orgUnit: null
             },
             {
+              // intervention status
               column: "K",
-              dataElement: "yD4patF6TMc"
+              dataElement: "trch-intervention-status"
             },
             {
               column: "L",
-              dataElement: "XpXE3AYoW4V",
+              dataElement: "trch-treatment-request",
               mapping: function(value) {
                 return Math.floor(value);
-              }
-            },
-            {
-              column: "M",
-              dataElement: "qXfluft9WvF"
-            },
-            {
-              column: "N",
-              dataElement: "pcn-pcdate",
-              mapping: function(value) {
-                for (var i = 0; i < month_names_short.length; i++) {
-                  if (hasText(value, month_names_short[i]), true) {
-                    return i + 1;
-                  }
-                }
-              }
-            },
-            {
-              column: "O",
-              dataElement: "HDIz3YLsw73",
-              mapping: function(value) {
-                if (hasText(value, "yes", true)) return "true";
-                if (hasText(value, "no", true)) return "false";
-              }
-            },
-            {
-              column: "P",
-              dataElement: "dEFippgWHZi"
-            },
-            {
-              column: "Q",
-              dataElement: "fY74mfHG6Xr"
-            },
-            {
-              column: "R",
-              dataElement: "QZpTVwpsbw1",
-              mapping: function(value) {
-                for (var i = 0; i < month_names_short.length; i++) {
-                  if (hasText(value, month_names_short[i]), true) {
-                    return i + 1;
-                  }
-                }
               }
             }
           ]
