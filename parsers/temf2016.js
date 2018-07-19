@@ -15,8 +15,8 @@ module.exports = function(_params) {
     params: params,
     definition: {
       defaults: {
-        categoryOptionCombo: "HllvX50cXC0",
-        attributeOptionCombo: "HllvX50cXC0",
+        categoryOptionCombo: params.defaultCategoryOptionCombo,
+        attributeOptionCombo: params.defaultAttributeOptionCombo
       }
     },
     sheets: [
@@ -55,19 +55,19 @@ module.exports = function(_params) {
             },
             {
               column: "F",
-              dataElement: "fwocIchmkBs"
+              dataElement: "pcn-survey-year"
             },
             {
               column: "G",
-              dataElement: "iB2QByaVoiB"
+              dataElement: "trch-tf-pct"
             },
             {
               column: "H",
-              dataElement: "L36uJKin4xW"
+              dataElement: "trch-tt-pct"
             },
             {
               column: "I",
-              dataElement: "tYEOhAimtsQ",
+              dataElement: "trch-tt-age",
               mapping: function(value, row) {
                 if (/(\d+)/.test(value))
                   return /(\d+)/.exec(value)[1]
@@ -75,7 +75,7 @@ module.exports = function(_params) {
             },
             {
               column: "I",
-              dataElement: "mPMdsgLyqev",
+              dataElement: "trch-tt-sex",
               mapping: function(value, row) {
                 var sex = "";
                 if (/F/i.test(value)) sex += 'f';
@@ -85,21 +85,21 @@ module.exports = function(_params) {
             },
             {
               column: "J",
-              dataElement: "vbohuRxSxDE"
+              dataElement: "trch-tt-survey-source"
             },
             {
               column: "K",
-              dataElement: "d7TTTQDQSEL",
+              dataElement: "trch-surgeries",
               categoryOptionCombo: "sex-female"
             },
             {
               column: "L",
-              dataElement: "d7TTTQDQSEL",
+              dataElement: "trch-surgeries",
               categoryOptionCombo: "sex-male"
             },
-            // whgere is M?
+            // where is M?
             {
-              column: "O",
+              column: "", // postpone
               dataElement: "wjJTQ33NCbj",
               mapping: function(value) {
                 if (value) {
