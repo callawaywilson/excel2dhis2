@@ -185,7 +185,7 @@ module.exports = function(_params) {
             {
               column: "F",
               dataElement: "pcn-pop-trgt",
-              categoryOptionCombo: "pcnd-int-ivm-age-sac-sex-unknown-sac",  // SAC
+              categoryOptionCombo: "pcnd-int-ivm-age-sac-sex-unknown",  // SAC
               mapping: function(value) {return Math.round(value)}
             },
             {
