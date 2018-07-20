@@ -76,40 +76,8 @@ module.exports = function(_params) {
 
             //   }
             // },
-            // Prevalence - STH
-            {
-              column: "J",
-              dataElement: "pcn-prevalence",
-              categoryOptionCombo: "pc-ntd-sth",
-              mapping: function(value, row) {
-                if (value === '1' || value == 1) {
-                  return 'low'
-                } else if (value === '2' || value == 2) {
-                  return 'moderate'
-                } else if (value === '3' || value == 3) {
-                  return 'high'
-                } else if (value === '5' || value == 5) {
-                  return 'unknown'
-                }
-              }
-            },
-            // Prevalence - SCH
-            {
-              column: "K",
-              dataElement: "pcn-prevalence",
-              categoryOptionCombo: "pc-ntd-sch",
-              mapping: function(value, row) {
-                if (value === '1' || value == 1) {
-                  return 'low'
-                } else if (value === '2' || value == 2) {
-                  return 'moderate'
-                } else if (value === '3' || value == 3) {
-                  return 'high'
-                } else if (value === '5' || value == 5) {
-                  return 'unknown'
-                }
-              }
-            },
+          
+            
             // Endemicity - LF
             {
               column: "H",
@@ -117,7 +85,7 @@ module.exports = function(_params) {
               categoryOptionCombo: "pc-ntd-lf",
               mapping: function(value, row) {
                 if (value === '0' || value == 0) {
-                  return 'non_endemic'
+                  return 'non-endemic'
                 } else if (value === '1' || value == 1) {
                   return 'endemic'
                 } else if (value === '4' || value == 4) {
@@ -134,7 +102,7 @@ module.exports = function(_params) {
               categoryOptionCombo: "pc-ntd-ov",
               mapping: function(value, row) {
                 if (value === '0' || value == 0) {
-                  return 'non_endemic'
+                  return 'non-endemic'
                 } else if (value === '1' || value == 1) {
                   return 'endemic'
                 } else if (value === '4' || value == 4) {
@@ -151,7 +119,7 @@ module.exports = function(_params) {
               categoryOptionCombo: "pc-ntd-sth",
               mapping: function(value, row) {
                 if (value === '0' || value == 0) {
-                  return 'non_endemic'
+                  return 'non-endemic'
                 } else if (parseInt(value, 10) >= 1 && parseInt(value, 10) <= 3) {
                   return 'endemic'
                 } else if (value === '4' || value == 4) {
@@ -168,7 +136,7 @@ module.exports = function(_params) {
               categoryOptionCombo: "pc-ntd-sch",
               mapping: function(value, row) {
                 if (value === '0' || value == 0) {
-                  return 'non_endemic'
+                  return 'non-endemic'
                 } else if (parseInt(value, 10) >= 1 && parseInt(value, 10) <= 3) {
                   return 'endemic'
                 } else if (value === '4' || value == 4) {
