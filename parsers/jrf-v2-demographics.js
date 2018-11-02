@@ -33,8 +33,8 @@ module.exports = function(_params) {
             // Population - PreSAC
             {
               column: "E",
-              dataElement: "HMJ3Hth1ry7",
-              categoryOptionCombo: "clHYCgF9jys",
+              dataElement: "pcn-pop",
+              categoryOptionCombo: "age-presac",
               mapping: function(value, row) {
                 return Math.round(Number.parseFloat(value));
               }
@@ -42,8 +42,8 @@ module.exports = function(_params) {
             // Population - SAC
             {
               column: "F",
-              dataElement: "HMJ3Hth1ry7",
-              categoryOptionCombo: "AVegvKfvlnS",
+              dataElement: "pcn-pop",
+              categoryOptionCombo: "age-sac",
               mapping: function(value, row) {
                 return Math.round(Number.parseFloat(value));
               }
@@ -51,8 +51,8 @@ module.exports = function(_params) {
             // Population - Adults
             {
               column: "G",
-              dataElement: "HMJ3Hth1ry7",
-              categoryOptionCombo: "yW288iFizUY",
+              dataElement: "pcn-pop",
+              categoryOptionCombo: "age-adult",
               mapping: function(value, row) {
                 return Math.round(Number.parseFloat(value));
               }
@@ -61,8 +61,8 @@ module.exports = function(_params) {
             // Prevalence - LF
             // {
             //   column: "H",
-            //   dataElement: "Nva0k6G5RsF",
-            //   categoryOptionCombo: "RIEjTfuzC1z",
+            //   dataElement: "pcn-prevalence",
+            //   categoryOptionCombo: "pc-ntd-lf",
             //   mapping: function(value, row) {
 
             //   }
@@ -70,8 +70,8 @@ module.exports = function(_params) {
             // // Prevalence - Oncho
             // {
             //   column: "I",
-            //   dataElement: "Nva0k6G5RsF",
-            //   categoryOptionCombo: "SjE9LhAEw1i",
+            //   dataElement: "pcn-prevalence",
+            //   categoryOptionCombo: "pc-ntd-ov",
             //   mapping: function(value, row) {
 
             //   }
@@ -79,8 +79,8 @@ module.exports = function(_params) {
             // Prevalence - STH
             {
               column: "J",
-              dataElement: "Nva0k6G5RsF",
-              categoryOptionCombo: "MgZwyzoI9Ka",
+              dataElement: "pcn-prevalence",
+              categoryOptionCombo: "pc-ntd-sth",
               mapping: function(value, row) {
                 if (value === '1' || value == 1) {
                   return 'low'
@@ -96,8 +96,8 @@ module.exports = function(_params) {
             // Prevalence - SCH
             {
               column: "K",
-              dataElement: "Nva0k6G5RsF",
-              categoryOptionCombo: "eFifYMTcO2T",
+              dataElement: "pcn-prevalence",
+              categoryOptionCombo: "pc-ntd-sch",
               mapping: function(value, row) {
                 if (value === '1' || value == 1) {
                   return 'low'
@@ -113,8 +113,8 @@ module.exports = function(_params) {
             // Endemicity - LF
             {
               column: "H",
-              dataElement: "BwX5xyuCQQU",
-              categoryOptionCombo: "RIEjTfuzC1z",
+              dataElement: "pcn-endemicity",
+              categoryOptionCombo: "pc-ntd-lf",
               mapping: function(value, row) {
                 if (value === '0' || value == 0) {
                   return 'non_endemic'
@@ -130,8 +130,8 @@ module.exports = function(_params) {
             // Endemicity - Oncho
             {
               column: "I",
-              dataElement: "BwX5xyuCQQU",
-              categoryOptionCombo: "SjE9LhAEw1i",
+              dataElement: "pcn-endemicity",
+              categoryOptionCombo: "pc-ntd-ov",
               mapping: function(value, row) {
                 if (value === '0' || value == 0) {
                   return 'non_endemic'
@@ -147,8 +147,8 @@ module.exports = function(_params) {
             // Endemicity - STH
             {
               column: "J",
-              dataElement: "BwX5xyuCQQU",
-              categoryOptionCombo: "MgZwyzoI9Ka",
+              dataElement: "pcn-endemicity",
+              categoryOptionCombo: "pc-ntd-sth",
               mapping: function(value, row) {
                 if (value === '0' || value == 0) {
                   return 'non_endemic'
@@ -164,8 +164,8 @@ module.exports = function(_params) {
             // Endemicity - SCH
             {
               column: "K",
-              dataElement: "BwX5xyuCQQU",
-              categoryOptionCombo: "eFifYMTcO2T",
+              dataElement: "pcn-endemicity",
+              categoryOptionCombo: "pc-ntd-sch",
               mapping: function(value, row) {
                 if (value === '0' || value == 0) {
                   return 'non_endemic'

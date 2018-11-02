@@ -32,7 +32,7 @@ module.exports = function(_params) {
             },
             orgUnit: findOrg,
           },
-          mappings: [
+          dataValues: [
             {
               column: "A",
               variable: "zone",
@@ -90,12 +90,12 @@ module.exports = function(_params) {
             {
               column: "K",
               dataElement: "d7TTTQDQSEL",
-              categoryOptionCombo: "XxPgNmIyWEx"
+              categoryOptionCombo: "sex-female"
             },
             {
               column: "L",
               dataElement: "d7TTTQDQSEL",
-              categoryOptionCombo: "H8q1t9ex8OR"
+              categoryOptionCombo: "sex-male"
             },
             // whgere is M?
             {
@@ -115,21 +115,21 @@ module.exports = function(_params) {
             // Antib. - Az tabs 
             {
               column: "P",
-              dataElement: "NrsJDmb5ymd",
-              categoryOptionCombo: "xtUty2s6rb9"
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-az-tabs-age-unknown-sex-female" //females
             },
             {
               column: "Q",
-              dataElement: "NrsJDmb5ymd",
-              categoryOptionCombo: "rVAT5UlKOVq"
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-az-tabs-age-unknown-sex-male" //males
             },
             {
               column: "R",
-              dataElement: "NrsJDmb5ymd",
-              categoryOptionCombo: "uE0CxADyNck",
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-az-tabs-age-unknown-sex-unknown",
               mapping: function(value, row) {
-                if (!rowElementValue(row, "NrsJDmb5ymd", "xtUty2s6rb9") &&
-                   !rowElementValue(row, "NrsJDmb5ymd", "uE0CxADyNck")) {
+                if (!rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-tabs-age-unknown-sex-female") &&
+                   !rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-tabs-age-unknown-sex-male")) {
                   return value;
                 }
               }
@@ -137,21 +137,21 @@ module.exports = function(_params) {
             // Antib. - Az Oral
             {
               column: "S",
-              dataElement: "NrsJDmb5ymd",
-              categoryOptionCombo: "AkUk2I8UYdo"
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-az-oral-age-unknown-sex-female" //female
             },
             {
               column: "T",
-              dataElement: "NrsJDmb5ymd",
-              categoryOptionCombo: "ueQESuOZbTK"
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-az-oral-age-unknown-sex-male" //male
             },
             {
               column: "U",
-              dataElement: "NrsJDmb5ymd",
-              categoryOptionCombo: "VDJkgG8WuMr",
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-az-oral-age-unknown-sex-unknown",
               mapping: function(value, row) {
-                if (!rowElementValue(row, "NrsJDmb5ymd", "AkUk2I8UYdo") &&
-                   !rowElementValue(row, "NrsJDmb5ymd", "ueQESuOZbTK")) {
+                if (!rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-oral-age-unknown-sex-female") &&
+                   !rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-oral-age-unknown-sex-male")) {
                   return value;
                 }
               }
@@ -159,21 +159,21 @@ module.exports = function(_params) {
             // Antib. - Tet Oin
             {
               column: "V",
-              dataElement: "NrsJDmb5ymd",
-              categoryOptionCombo: "igXj2FYlmQ3"
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-teo-age-unknown-sex-female" //female
             },
             {
               column: "W",
-              dataElement: "NrsJDmb5ymd",
-              categoryOptionCombo: "GoajnE9epLK"
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-teo-age-unknown-sex-male" //male
             },
             {
               column: "X",
-              dataElement: "NrsJDmb5ymd",
-              categoryOptionCombo: "VnTPvQznpOf",
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-teo-age-unknown-sex-unknown", //unknown
               mapping: function(value, row) {
-                if (!rowElementValue(row, "NrsJDmb5ymd", "igXj2FYlmQ3") &&
-                   !rowElementValue(row, "NrsJDmb5ymd", "GoajnE9epLK")) {
+                if (!rowElementValue(row, "pcn-pop-trt", "pcnd-int-teo-age-unknown-sex-female") &&
+                   !rowElementValue(row, "pcn-pop-trt", "pcnd-int-teo-age-unknown-sex-male")) {
                   return value;
                 }
               }
@@ -181,21 +181,21 @@ module.exports = function(_params) {
             // Antib. - Az Drops 
             {
               column: "V",
-              dataElement: "NrsJDmb5ymd",
-              categoryOptionCombo: "vcUu6ODYhLw"
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-az-drops-age-unknown-sex-female"
             },
             {
               column: "W",
-              dataElement: "NrsJDmb5ymd",
-              categoryOptionCombo: "hskrbPDMQ8u"
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-az-drops-age-unknown-sex-male"
             },
             {
               column: "X",
-              dataElement: "NrsJDmb5ymd",
-              categoryOptionCombo: "lmiSrZd1dDJ",
+              dataElement: "pcn-pop-trt",
+              categoryOptionCombo: "pcnd-int-az-drops-age-unknown-sex-unknown",
               mapping: function(value, row) {
-                if (!rowElementValue(row, "NrsJDmb5ymd", "vcUu6ODYhLw") &&
-                   !rowElementValue(row, "NrsJDmb5ymd", "hskrbPDMQ8u")) {
+                if (!rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-drops-age-unknown-sex-female") &&
+                   !rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-drops-age-unknown-sex-male")) {
                   return value;
                 }
               }
@@ -203,56 +203,56 @@ module.exports = function(_params) {
             // Facial Cleanliness
             {
               column: "AD",
-              dataElement: "o33d514b4LM",
-              categoryOptionCombo: "WUjsOlQ1ta4",
+              dataElement: "tra-outreach-fc",
+              categoryOptionCombo: "tra-outreach-fc-mda-time",
               mapping: function(value) {
                 return hasText(value, "At time of MDA", true) ? "true" : null;
               }
             },
             {
               column: "AD",
-              dataElement: "o33d514b4LM",
-              categoryOptionCombo: "JVgAvwuqe6H",
+              dataElement: "tra-outreach-fc",
+              categoryOptionCombo: "tra-outreach-fc-school",
               mapping: function(value) {
                 return hasText(value, "School Based", true) ? "true" : null;
               }
             },
             {
               column: "AD",
-              dataElement: "o33d514b4LM",
-              categoryOptionCombo: "gzyIHIx7qQd",
+              dataElement: "tra-outreach-fc",
+              categoryOptionCombo: "tra-outreach-fc-media",
               mapping: function(value) {
                 return hasText(value, "Radio Message and/or other mass media", true) ? "true" : null;
               }
             },
             {
               column: "AD",
-              dataElement: "o33d514b4LM",
-              categoryOptionCombo: "cAbNbOtOV5Y",
+              dataElement: "tra-outreach-fc",
+              categoryOptionCombo: "tra-outreach-fc-chw",
               mapping: function(value) {
                 return hasText(value, "Village health worker or equivalent", true) ? "true" : null;
               }
             },
             {
               column: "AD",
-              dataElement: "o33d514b4LM",
-              categoryOptionCombo: "yGcTqXGXmQs",
+              dataElement: "tra-outreach-fc",
+              categoryOptionCombo: "tra-outreach-fc-primaryhc",
               mapping: function(value) {
                 return hasText(value, "Primary healthcare", true) ? "true" : null;
               }
             },
             {
               column: "AD",
-              dataElement: "o33d514b4LM",
-              categoryOptionCombo: "qClFirrlViZ",
+              dataElement: "tra-outreach-fc",
+              categoryOptionCombo: "tra-outreach-fc-other",
               mapping: function(value) {
                 return hasText(value, "Other") ? "true" : null;
               }
             },
             {
               column: "AD",
-              dataElement: "o33d514b4LM",
-              categoryOptionCombo: "dSbmqcOKis2",
+              dataElement: "tra-outreach-fc",
+              categoryOptionCombo: "tra-outreach-fc-none",
               mapping: function(value) {
                 return hasText(value, "None", true) ? "true" : null;
               }
@@ -260,63 +260,63 @@ module.exports = function(_params) {
             // Environmental Improvement
             {
               column: "AE",
-              dataElement: "gqnbsVPxSoV",
-              categoryOptionCombo: "bcqX62Vavtz",
+              dataElement: "tra-outreach-ei",
+              categoryOptionCombo: "tra-outreach-ei-latrinenttf",
               mapping: function(value) {
                 return hasText(value, "Latrine construction by NTTF Member", true) ? "true" : null;
               }
             },
             {
               column: "AE",
-              dataElement: "gqnbsVPxSoV",
-              categoryOptionCombo: "Kb8PX7E8r2j",
+              dataElement: "tra-outreach-ei",
+              categoryOptionCombo: "tra-outreach-ei-waterpointnttf",
               mapping: function(value) {
                 return hasText(value, "Water point construction by NTTF member", true) ? "true" : null;
               }
             },
             {
               column: "AE",
-              dataElement: "gqnbsVPxSoV",
-              categoryOptionCombo: "Q26YQD2JeWO",
+              dataElement: "tra-outreach-ei",
+              categoryOptionCombo: "tra-outreach-ei-latrineother",
               mapping: function(value) {
                 return hasText(value, "Latrine construction by other stakeholders", true) ? "true" : null;
               }
             },
             {
               column: "AE",
-              dataElement: "gqnbsVPxSoV",
-              categoryOptionCombo: "Ue60RFoLwWi",
+              dataElement: "tra-outreach-ei",
+              categoryOptionCombo: "tra-outreach-ei-waterpointother",
               mapping: function(value) {
                 return hasText(value, "Water point construction by other stakeholders", true) ? "true" : null;
               }
             },
             {
               column: "AE",
-              dataElement: "gqnbsVPxSoV",
-              categoryOptionCombo: "wVxHAvy7psp",
+              dataElement: "tra-outreach-ei",
+              categoryOptionCombo: "tra-outreach-ei-commsani",
               mapping: function(value) {
                 return hasText(value, "Community led total sanitation", true) ? "true" : null;
               }
             },
             {
               column: "AE",
-              dataElement: "gqnbsVPxSoV",
-              categoryOptionCombo: "fS91yAIC7qR",
+              dataElement: "tra-outreach-ei",
+              categoryOptionCombo: "tra-outreach-ei-other",
               mapping: function(value) {
                 return hasText(value, "Other") ? "true" : null;
               }
             },
             {
               column: "AE",
-              dataElement: "gqnbsVPxSoV",
-              categoryOptionCombo: "JMe37GzRyb3",
+              dataElement: "tra-outreach-ei",
+              categoryOptionCombo: "tra-outreach-ei-none",
               mapping: function(value) {
                 return hasText(value, "None", true) ? "true" : null;
               }
             },
             {
               column: "AF",
-              dataElement: "zknpxa5S7P0"
+              dataElement: "comments"
             }
           ]
         }
@@ -371,7 +371,7 @@ module.exports = function(_params) {
             },
             {
               column: "N",
-              dataElement: "FtgUASI0s26",
+              dataElement: "pcn-pcdate",
               mapping: function(value) {
                 for (var i = 0; i < month_names_short.length; i++) {
                   if (hasText(value, month_names_short[i]), true) {
