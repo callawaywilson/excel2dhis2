@@ -3,14 +3,15 @@ module.exports = function(_params) {
   let moment = require('moment');
 
   let params = Object.assign({
-    period: null,
     orgUnits: null,
     orgTree: null,
     geoconnectAttributeID: 'rct9QrdQEnz',
     spellingsAttributeID: 'U4FWYMGCWju',
-    lfProgram: "pcn-lfsurvey-event",
+    lfProgram: "tvVPo84NYZP",
+    // lfProgram: "pcn-lfsurvey-event",
     // lfProgramStage: "jrgpfrJKSW0",
-    onchoProgram: "pcn-ovsurvey-event",
+    onchoProgram: "MuVGDJvPZy4",
+    // onchoProgram: "pcn-ovsurvey-event",
     // onchoProgramStage: "f1QqINpgrcR",
     sthProgram: "pcn-sthsurvey-event",
     schProgram: "pcn-schsurvey-event",
@@ -31,15 +32,15 @@ module.exports = function(_params) {
         params: params,
         row: {
           event: {
-            event: function(row) {
-              var district = getRowVariables(row)['district'];
-              if (!district) district = "0"
-              var date = getRowVariables(row)['surveydate'];
-              if (!date) {
-                date = moment(new Date(params.period,0,1)).format('YYYY-MM-DD');
-              }
-              return params.lfProgram + "-" + district.id + "-" + date;
-            },
+            // event: function(row) {
+            //   var district = getRowVariables(row)['district'];
+            //   if (!district) district = "0"
+            //   var date = getRowVariables(row)['surveydate'];
+            //   if (!date) {
+            //     date = moment(new Date(params.period,0,1)).format('YYYY-MM-DD');
+            //   }
+            //   return params.lfProgram + "-" + district.id + "-" + date;
+            // },
             program: params.lfProgram,
             programStage: params.lfProgramStage,
             attributeOptionCombo: params.attributeOptionCombo,
@@ -124,8 +125,9 @@ module.exports = function(_params) {
               column: "E",
               variable: "surveydate",
               mapping: function(value, row) {
-                var d = moment(value, 'MMMM YYYY');
-                if (!d) d = moment(value + ' ' + params.period, 'MMMM YYYY' );
+                var d = moment(value, 'MMMM YYYY', true);
+                if (!d || !d.isValid())
+                  d = moment(value + ' ' + params.period, 'MMMM YYYY' );
                 return d.format('YYYY-MM-DD');
               }
             },
@@ -365,15 +367,15 @@ module.exports = function(_params) {
         params: params,
         row: {
           event: {
-            event: function(row) {
-              var district = getRowVariables(row)['district'];
-              if (!district) district = "0"
-              var date = getRowVariables(row)['dateOfSurvey'];
-              if (!date) {
-                date = moment(new Date(params.period,0,1)).format('YYYY-MM-DD');
-              }
-              return params.onchoProgram + "-" + district.id + "-" + date;
-            },
+            // event: function(row) {
+            //   var district = getRowVariables(row)['district'];
+            //   if (!district) district = "0"
+            //   var date = getRowVariables(row)['dateOfSurvey'];
+            //   if (!date) {
+            //     date = moment(new Date(params.period,0,1)).format('YYYY-MM-DD');
+            //   }
+            //   return params.onchoProgram + "-" + district.id + "-" + date;
+            // },
             program: params.onchoProgram,
             programStage: params.onchoProgramStage,
             attributeOptionCombo: params.attributeOptionCombo,
@@ -458,8 +460,9 @@ module.exports = function(_params) {
               column: "E",
               variable: "dateOfSurvey",
               mapping: function(value, row) {
-                var d = moment(value, 'MMMM YYYY');
-                if (!d) d = moment(value + ' ' + params.period, 'MMMM YYYY' );
+                var d = moment(value, 'MMMM YYYY', true);
+                if (!d || !d.isValid()) 
+                  d = moment(value + ' ' + params.period, 'MMMM YYYY' );
                 return d.format('YYYY-MM-DD');
               }
             },
