@@ -30,9 +30,40 @@ Options:
   },
   sheets: [
     {
-      names: [/4-[\D]{4} TEMF/],    // String or Regex, names of tabs to match
-      startRow: 7,                  // Row to start parsing on.  Continues to end.
+      names: [/4-[\D]{4} TEMF/], 
+      startRow: 7,  
+      params: params,  // Available as params on each row
+
+      // Cells are references to single cells in the sheet   
+      cells: [
+        column: 'G',
+        row: 2,
+        dataElement: "XXXXXXXX",
+        categoryOptionCombo: "XXXXXXXX",
+        attributeOptionCombo: "XXXXXXXX",
+        mapping: function(inputValue, cells) {
+          // cells variable is the previous cell values calculated
+          return value; //default returns input value
+        }
+      ],
+
+      // How to process each row              
       row: {
+
+        // OPTIONAL If 'event' is present, row will be interpreted as an even
+        event: {
+          program: 'XXXXXXXX',
+          programStage: 'XXXXXXXX',
+          attributeOptionCombo: 'XXXXXXXX',
+          attributeCategoryOptions: 'XXXXXXXX',
+          status: 'XXXXXXXX',
+          eventDate: function(row) {return date;},
+          orgUnit: function(row) {return orgUnit;},
+          orgUnitName: function(row) {return orgUnitName;},
+          coordinate: function(row) {return coord;},
+          notes: function(row) {return notes;},
+        }
+
         invariants: {
           period: function(row) {
             return params.year; 

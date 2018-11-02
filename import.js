@@ -66,8 +66,16 @@ function parseSheet(parserSheet, sheet) {
   var lastRow = parseInt(range[4], 10);
   var parserRow = parserSheet.row;
 
+  // Parse Individual Cells
+  if (parserSheet.cells) {
+    for (var i = 0; i < parserSheet.cells.length; i++) {
+      var parserCell = parserSheet.cells[i];
+      data = data.concat(parseCellValues(parserCell, sheet));
+    }
+  }
+
   // Program Event Mapping
-  if (parserRow.event) {
+  if (parserRow && parserRow.event) {
     for (var rowNum = parserSheet.startRow; rowNum <= lastRow; rowNum++) {
       var rowData = parseRowDataValues(parserRow, sheet, rowNum);
       var event = parseRowEvent(parserRow.event, rowData);
@@ -86,7 +94,9 @@ function parseSheet(parserSheet, sheet) {
       }
     }
     return {"events": data}
-  } else if (parserRow.dataValues) {
+
+  // Parse row data values
+  } else if (parserRow && parserRow.dataValues) {
     for (var rowNum = parserSheet.startRow; rowNum <= lastRow; rowNum++) {
       var rowData = parseRowDataValues(parserRow, sheet, rowNum);
       data = data.concat(rowData.filter(function(d) {
@@ -95,9 +105,28 @@ function parseSheet(parserSheet, sheet) {
     }
     return {"dataValues": data}
   } else {
-    console.log("Unknown row config");
-    return []
+    if (data.length < 1) console.log("No or unknown row config");
+    return {"dataValues": data};
   }
+}
+
+function parseCellValues(parserCell, sheet) {
+  var cellData = sheet[parserCell.column + parserCell.row];
+  var data = {};
+  // Apply keys in mapping
+  for (var i = 0; i < mappingKeys.length; i++) {
+    var key = mappingKeys[i];
+    if (parserCell[key]) {
+      data[key] = valueOrRowFunction(parserCell[key], data)
+    }
+    // Apply value
+    if (parserCell.mapping) {
+      data.value = parserCell.mapping(cellData.v, data);
+    } else {
+      data.value = cellData.v;
+    }
+  }
+  return data;
 }
 
 function parseRowDataValues(parserRow, sheet, rowNum) {
