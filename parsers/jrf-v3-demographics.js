@@ -110,6 +110,56 @@ module.exports = function(_params) {
                 }
               }
             },
+            // Population Requiring Treatment - LF
+            {
+              column: "L",
+              dataElement: "pcn-pop-require-pc",
+              categoryOptionCombo: 'pc-ntd-lf',
+              mapping: function(value, row) {
+                if (value === 'Unknown') {
+                  return 0;
+                }
+                return Math.round(Number.parseFloat(value));
+              }
+            },
+            // Population Requiring Treatment - Oncho
+            {
+              column: "M",
+              dataElement: "pcn-pop-require-pc",
+              categoryOptionCombo: 'pc-ntd-ov',
+              mapping: function(value, row) {
+                if (value === 'Unknown') {
+                  return 0;
+                }
+                return Math.round(Number.parseFloat(value));
+              }
+            },
+            // Population Requiring Treatment - STH
+            {
+              column: "N",
+              dataElement: "pcn-pop-require-pc",
+              categoryOptionCombo: 'pc-ntd-sth',
+              mapping: function(value, row) {
+                if (value === 'Unknown') {
+                  return 0;
+                }
+                return Math.round(Number.parseFloat(value));
+              }
+            },
+            // Population Requiring Treatment - SCH
+            {
+              column: "O",
+              dataElement: "pcn-pop-require-pc",
+              categoryOptionCombo: 'pc-ntd-sch',
+              mapping: function(value, row) {
+                if (value === 'Unknown') {
+                  return 0;
+                }
+                return Math.round(Number.parseFloat(value));
+              }
+            },
+
+
             // Endemicity - LF
             {
               column: "H",
@@ -176,54 +226,6 @@ module.exports = function(_params) {
                 } else if (value === '5' || value == 5) {
                   return 'endemic'
                 }
-              }
-            },
-            // Population Requiring Treatment - LF
-            {
-              column: "L",
-              dataElement: "pcn-pop-require-pc",
-              categoryOptionCombo: 'pc-ntd-lf',
-              mapping: function(value, row) {
-                if (value === 'Unknown') {
-                  return 0;
-                }
-                return Math.round(Number.parseFloat(value));
-              }
-            },
-            // Population Requiring Treatment - Oncho
-            {
-              column: "M",
-              dataElement: "pcn-pop-require-pc",
-              categoryOptionCombo: 'pc-ntd-ov',
-              mapping: function(value, row) {
-                if (value === 'Unknown') {
-                  return 0;
-                }
-                return Math.round(Number.parseFloat(value));
-              }
-            },
-            // Population Requiring Treatment - STH
-            {
-              column: "N",
-              dataElement: "pcn-pop-require-pc",
-              categoryOptionCombo: 'pc-ntd-sth',
-              mapping: function(value, row) {
-                if (value === 'Unknown') {
-                  return 0;
-                }
-                return Math.round(Number.parseFloat(value));
-              }
-            },
-            // Population Requiring Treatment - SCH
-            {
-              column: "O",
-              dataElement: "pcn-pop-require-pc",
-              categoryOptionCombo: 'pc-ntd-sch',
-              mapping: function(value, row) {
-                if (value === 'Unknown') {
-                  return 0;
-                }
-                return Math.round(Number.parseFloat(value));
               }
             },
 

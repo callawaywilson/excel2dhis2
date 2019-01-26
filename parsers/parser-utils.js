@@ -35,7 +35,10 @@ module.exports = function(params) {
             return [child, childName];
           }
         } else if (namelocation === 'end') {
-          if (name.toLowerCase().indexOf(childName, 1) == offset) {
+          // console.log(name, childName, name.toLowerCase().indexOf(childName, 1), offset)
+          if (name.toLowerCase().indexOf(childName, 1) == offset ||
+              (name.toLowerCase().indexOf(childName, 1) - 1) == offset) {
+            // console.log("HIT")
             return child;
           }
         } else {

@@ -1,0 +1,113 @@
+
+
+
+
+if r(LF) > 1
+  if r(Oncho) > 1
+    if r(STH) > 1
+      if r(SCH) > 1     // LF + Oncho + STH + SCH
+        LF(IVM+ALB) // MDA1
+        Oncho(IVM+ALB) // MDA1
+        if T1
+          STH(PZQ+MBD) || STH(PZQ+ALB) // T1, ALB or MBD
+          SCH(PZQ+MBD) || SCH(PZQ+ALB) // T1, ALB or MBD
+        else if T2
+          STH(PZQ) // T2
+          SCH(PZQ) // T2
+        end
+      else if r(SCH) < 1 // LF + Oncho + STH
+        LF(IVM+ALB) // MDA1
+        Oncho(IVM+ALB) // MDA1
+        if T3_R1 or T3_R2 
+          STH(ALB) || STH(MBD) // T3, ALB or MBD
+        else
+          STH(IVM+ALB) // MDA1
+        end
+      end
+    else if r(STH) < 1
+      if r(SCH) > 1   // LF + Oncho + SCH
+        LF(IVM+ALB) // MDA1
+        Oncho(IVM+ALB) // MDA1
+        SCH(PZQ) // T2
+      else if r(SCH) < 1  // LF + Oncho
+        LF(IVM+ALB)
+        Oncho(IVM+ALB)
+      end
+    end
+  else if r(Oncho) < 1
+    if r(STH) > 1
+      if r(SCH) > 1   // LF + STH + SCH
+        LF(IVM+ALB) // MDA1
+        if T1
+          STH(PZQ+MBD) || STH(PZQ+ALB) // T1, ALB or MBD
+          SCH(PZQ+MBD) || SCH(PZQ+ALB) // T1, ALB or MBD
+        else if T2
+          STH(PZQ) // T2
+          SCH(PZQ) // T2
+        end
+      else if r(SCH) < 1 // LF + STH
+        LF(IVM+ALB) // MDA1
+        if T3_R1 or T3_R2 
+          STH(ALB) || STH(MBD) // T3, ALB or MBD
+        else
+          STH(IVM+ALB) // MDA1
+        end
+      end
+    else if r(STH) < 1
+      if r(SCH) > 1   // LF + SCH
+        LF(IVM+ALB) // MDA1
+        SCH(PZQ)  // T2
+      else if r(SCH) < 1  // LF
+        LF(IVM+ALB)
+      end
+    end
+  end 
+else if r(LF) < 1
+  if r(Oncho) > 1
+    if r(STH) > 1
+      if r(SCH) > 1   // Oncho + STH + SCH
+        Oncho(IVM+ALB) // MDA1
+        if T1
+          STH(PZQ+MBD) || STH(PZQ+ALB) // T1, ALB or MBD
+          SCH(PZQ+MBD) || SCH(PZQ+ALB) // T1, ALB or MBD
+        else if T2
+          STH(IVM+ALB) // MDA1
+          SCH(PZQ) // T2
+        end
+      else if r(SCH) < 1  // Oncho + STH
+        Oncho(IVM+ALB) // MDA1
+        if T3
+          STH(ALB) || STH(MBD) // T3, ALB or MBD
+        else
+          STH(IVM+ALB) // MDA1
+        end
+      end
+    else if r(STH) < 1
+      if r(SCH) > 1   // Oncho + SCH
+        Oncho(IVM) // MDA3
+        SCH(PZQ) // T2
+      else if r(SCH) < 1  // Oncho
+        Oncho(IVM) // MDA3
+      end
+    end
+  else if r(Oncho) < 1
+    if r(STH) > 1
+      if r(SCH) > 1   // STH + SCH
+        SCH(PZQ+ALB) || SCH(PZQ+MBD) // T1, ALB or MBD
+        else if T3_R1 or T3_R2
+          STH(ALB) || ATH(MBD) // T3, ALB or MBD
+        else
+          STH(PZQ+ALB) || STH(PZQ+MBD) // T1, ALB or MBD
+        end
+      else if r(SCH) < 1  // STH
+        STH(ALB) || ATH(MBD) // T3, ALB or MBD
+      end
+    else if r(STH) < 1    
+      if r(SCH) > 1   // SCH
+        SCH(PZQ) // T2
+      else if r(SCH) < 1 // Disease-free!
+
+      end
+    end
+  end 
+end
