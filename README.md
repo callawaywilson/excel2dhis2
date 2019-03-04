@@ -307,3 +307,42 @@ Postponed
 ### Joint Request for Selected PC Medicines
 
 Coming Soon....
+
+
+
+## Mapping
+
+#### Number of treatment rounds planned for the year
+
+if LF > None
+  if PC Implemented = MDA1(IVM+ALB)
+    Targeted / Treated for LF = Tab MDA1
+  if PC Implemented = MDA2(DEC+ALB)
+    Targeted / Treated for LF = Tab MDA2
+  end
+if Oncho > None
+  if PC Implemented = MDA1(IVM+ALB)
+    Targeted / Treated for Oncho = Tab MDA1
+  if PC Implemented = MDA3(IVM)
+    Targeted / Treated for Oncho = Tab MDA3
+  end
+if STH > None
+  Targeted / Treated for STH = MDA1(IVM+ALB) || MDA2(DEC+ALB) || T1(PZQ+ALB) || T3(ALB/MBD)
+  if PC Implemented = MDA1(IVM+ALB)
+    Targeted / Treated for STH = MDA1
+  if PC Implemented = MDA2(DEC+ALB)
+    Targeted / Treated for STH = MDA2
+  if PC Implemented = T1(PZQ+ALB)
+    Targeted / Treated for STH = T1
+  if PC Implemented = T3(ALB/MBD)
+    Targeted / Treated for STH = T3
+  end
+if SCH > None
+  Targeted / Treated for SCH = T1(PZQ/MBD) || T2(PZQ)
+  if PC Implemented = T1(PZQ/MBD)
+    Targeted / Treated for SCH = Tab T1
+  if PC Implemented = T2(PZQ)
+    Targeted / Treated for SCH = Tab T2
+  end
+end
+

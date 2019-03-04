@@ -1,5 +1,20 @@
 module.exports = function(params) {
 
+  function lookupValue(element) {
+    var dataValues = params.dataValues;
+    if (!dataValues || dataValues.length < 1) {
+      throw "Looking up " + JSON.stringify(element) + " in empty or no dataValues, dataValues must be populated";
+    }
+    for (var i = 0; i < dataValues.length; i++) {
+      var value = dataValues[i];
+      if (value['period'] == element['period'] &&
+          value['orgUnit'] == element['orgUnit'] &&
+          value['dataElement'] == element['dataElement'] &&
+          value['categoryOptionCombo'] == element['categoryOptionCombo'] ) {
+        return value['value'];
+      }
+    }
+  }
 
   function districtLookupProvinceState(provincestate, districtName) {
     //Find Region

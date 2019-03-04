@@ -7,17 +7,17 @@ module.exports = function(_params) {
     orgTree: null,
     geoconnectAttributeID: 'rct9QrdQEnz',
     spellingsAttributeID: 'U4FWYMGCWju',
-    lfProgram: "tvVPo84NYZP",
+    lfProgram: "pcn-lfsurvey-event",
     // lfProgram: "pcn-lfsurvey-event",
     // lfProgramStage: "jrgpfrJKSW0",
-    onchoProgram: "MuVGDJvPZy4",
+    onchoProgram: "pcn-ovsurvey-event",
     // onchoProgram: "pcn-ovsurvey-event",
     // onchoProgramStage: "f1QqINpgrcR",
     sthProgram: "pcn-sthsurvey-event",
     schProgram: "pcn-schsurvey-event",
     rootOrgName: 'Ethiopia',
-    attributeOptionCombo: "HllvX50cXC0",
-    attributeCategoryOptions: "xYerKDKCefk"
+    attributeOptionCombo: "default",
+    attributeCategoryOptions: "default"
   }, _params);
 
   var def = {

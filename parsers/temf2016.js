@@ -15,8 +15,8 @@ module.exports = function(_params) {
     params: params,
     definition: {
       defaults: {
-        categoryOptionCombo: "HllvX50cXC0",
-        attributeOptionCombo: "HllvX50cXC0",
+        categoryOptionCombo: "default",
+        attributeOptionCombo: "default",
       }
     },
     sheets: [
@@ -55,151 +55,362 @@ module.exports = function(_params) {
             },
             {
               column: "F",
-              dataElement: "fwocIchmkBs"
+              dataElement: "trch-survey-year-prevalence"
             },
             {
               column: "G",
-              dataElement: "iB2QByaVoiB"
+              dataElement: "trch-tf-pct",
+              mapping: function(value, row) {
+                return Math.floor(value)
+              }
             },
             {
               column: "H",
-              dataElement: "L36uJKin4xW"
-            },
-            {
-              column: "I",
-              dataElement: "tYEOhAimtsQ",
+              dataElement: "trch-tt-pct",
               mapping: function(value, row) {
-                if (/(\d+)/.test(value))
-                  return /(\d+)/.exec(value)[1]
+                return Math.floor(value)
               }
             },
             {
               column: "I",
-              dataElement: "mPMdsgLyqev",
+              dataElement: "trch-tt-age",
+              mapping: function(value, row) {
+                if (/(\d+)/.test(value))
+                  return parseInt(/(\d+)/.exec(value)[1], 10)
+              }
+            },
+            {
+              column: "I",
+              dataElement: "trch-tt-sex",
               mapping: function(value, row) {
                 var sex = "";
-                if (/F/i.test(value)) sex += 'f';
-                if (/M/i.test(value)) sex += 'm';
+                if (/Female/i.test(value)) sex += 'f';
+                if (/Male/.test(value)) sex += 'm';
                 return sex;
               }
             },
             {
               column: "J",
-              dataElement: "vbohuRxSxDE"
+              dataElement: "trch-tt-survey-source"
             },
+
+            // Persons operated for TT, annual data, so put in December
             {
               column: "K",
-              dataElement: "d7TTTQDQSEL",
-              categoryOptionCombo: "sex-female"
+              variable: "trch-persons-operated-male",
+              mapping: function(value, row) {
+                parseInt(value, 10);
+              }
             },
             {
               column: "L",
-              dataElement: "d7TTTQDQSEL",
-              categoryOptionCombo: "sex-male"
+              variable: "trch-persons-operated-female",
+              mapping: function(value, row) {
+                parseInt(value, 10);
+              }
             },
-            // whgere is M?
+            {
+              column: "M",
+              variable: "trch-persons-operated-all",
+              mapping: function(value, row) {
+                parseInt(value, 10);
+              }
+            },
+            {
+              column: "K",
+              dataElement: "trch-persons-operated",
+              categoryOptionCombo: "sex-male",
+              period: function(value, row) {
+                return params.period + "12";
+              },
+              mapping: function(value, row) {
+                var variables = getRowVariables(row);
+                var male = variables['trch-persons-operated-male'];
+                var female = variables['trch-persons-operated-female'];
+                var all = variables['trch-persons-operated-all'];
+                if (all > 0) {
+                  return 0;
+                } else {
+                  return male;
+                }
+              }
+            },
+            {
+              column: "L",
+              dataElement: "trch-persons-operated",
+              categoryOptionCombo: "sex-female",
+              period: function(value, row) {
+                return params.period + "12";
+              },
+              mapping: function(value, row) {
+                var variables = getRowVariables(row);
+                var male = variables['trch-persons-operated-male'];
+                var female = variables['trch-persons-operated-female'];
+                var all = variables['trch-persons-operated-all'];
+                if (all > 0) {
+                  return 0;
+                } else {
+                  return female;
+                }
+              }
+            },
+            {
+              column: "M",
+              dataElement: "trch-persons-operated",
+              categoryOptionCombo: "sex-unknown",
+              period: function(value, row) {
+                return params.period + "12";
+              },
+              mapping: function(value, row) {
+                var variables = getRowVariables(row);
+                var male = variables['trch-persons-operated-male'];
+                var female = variables['trch-persons-operated-female'];
+                var all = variables['trch-persons-operated-all'];
+                if (male <= 0 && female <= 0) {
+                  return all;
+                } else {
+                  return 0;
+                }
+              }
+            },
+
+
+
+            // Month of MDA
             {
               column: "O",
-              dataElement: "wjJTQ33NCbj",
+              variable: 'year',
+              mapping: function() {return params.period;}
+            },
+            {
+              column: "O",
+              variable: "mdamonth",
               mapping: function(value) {
                 if (value) {
                   for (var i = 0; i < month_names.length; i++) {
                     if (month_names[i] == value || month_names_short[i] == value) {
-                      var month = (i < 9 ? '0' : '') + (i + 1)
-                      return params.period + "-" + month + "-01"
+                      return i + 1;
                     }
                   }
                 }
               }
             },
+
+            // Persons targeted for trachoma treatment
+            {
+              column: "N",
+              dataElement: "pcn-pop-trgt-tr",
+              categoryOptionCombo: "age-unknown-sex-unknown",
+              period: monthPeriod,
+              mapping: function(value, row) {
+                return Math.floor(value);
+              }
+            },
+
             // Antib. - Az tabs 
             {
               column: "P",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "pcnd-int-az-tabs-age-unknown-sex-female" //females
+              variable: "pcn-pop-trt-tr-ztabs-female",
+              mapping: function(value, row) {
+                parseInt(value, 10);
+              }
             },
             {
               column: "Q",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "pcnd-int-az-tabs-age-unknown-sex-male" //males
+              variable: "pcn-pop-trt-tr-ztabs-male",
+              mapping: function(value, row) {
+                parseInt(value, 10);
+              }
+            },
+            {
+              column: "Q",
+              variable: "pcn-pop-trt-tr-ztabs-all",
+              mapping: function(value, row) {
+                parseInt(value, 10);
+              }
+            },
+            {
+              column: "P",
+              dataElement: "pcn-pop-trt-tr-ztabs",
+              categoryOptionCombo: "age-unknown-sex-female",
+              period: monthPeriod,
+              mapping: function(value, row) {
+                var variables = getRowVariables(row);
+                var female = variables['pcn-pop-trt-tr-ztabs-female'];
+                var all = variables['pcn-pop-trt-tr-ztabs-all'];
+                if (female > 0) {
+                  return female;
+                }
+              }
+            },
+            {
+              column: "Q",
+              dataElement: "pcn-pop-trt-tr-ztabs",
+              categoryOptionCombo: "age-unknown-sex-male",
+              period: monthPeriod,
+              mapping: function(value, row) {
+                var variables = getRowVariables(row);
+                var male = variables['pcn-pop-trt-tr-ztabs-male'];
+                var all = variables['pcn-pop-trt-tr-ztabs-all'];
+                if (male > 0) {
+                  return male;
+                }
+              }
             },
             {
               column: "R",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "pcnd-int-az-tabs-age-unknown-sex-unknown",
+              dataElement: "pcn-pop-trt-tr-ztabs",
+              categoryOptionCombo: "age-unknown-sex-unknown",
+              period: monthPeriod,
               mapping: function(value, row) {
-                if (!rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-tabs-age-unknown-sex-female") &&
-                   !rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-tabs-age-unknown-sex-male")) {
-                  return value;
+                var variables = getRowVariables(row);
+                var female = variables['pcn-pop-trt-tr-ztabs-female'];
+                var male = variables['pcn-pop-trt-tr-ztabs-male'];
+                var all = variables['pcn-pop-trt-tr-ztabs-all'];
+                if (male <= 0 && female <= 0) {
+                  return all;
+                } else {
+                  return 0;
                 }
               }
             },
-            // Antib. - Az Oral
+
+            // Antib. - Az Oral 
             {
               column: "S",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "pcnd-int-az-oral-age-unknown-sex-female" //female
+              variable: "pcn-pop-trt-tr-zsyrup-female",
+              mapping: function(value, row) {
+                parseInt(value, 10);
+              }
             },
             {
               column: "T",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "pcnd-int-az-oral-age-unknown-sex-male" //male
+              variable: "pcn-pop-trt-tr-zsyrup-male",
+              mapping: function(value, row) {
+                parseInt(value, 10);
+              }
             },
             {
               column: "U",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "pcnd-int-az-oral-age-unknown-sex-unknown",
+              variable: "pcn-pop-trt-tr-zsyrup-all",
               mapping: function(value, row) {
-                if (!rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-oral-age-unknown-sex-female") &&
-                   !rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-oral-age-unknown-sex-male")) {
-                  return value;
+                parseInt(value, 10);
+              }
+            },
+            {
+              column: "S",
+              dataElement: "pcn-pop-trt-tr-zsyrup",
+              categoryOptionCombo: "age-unknown-sex-female",
+              period: monthPeriod,
+              mapping: function(value, row) {
+                var variables = getRowVariables(row);
+                var female = variables['pcn-pop-trt-tr-zsyrup-female'];
+                var all = variables['pcn-pop-trt-tr-zsyrup-all'];
+                if (female > 0) {
+                  return female;
                 }
               }
             },
-            // Antib. - Tet Oin
+            {
+              column: "T",
+              dataElement: "pcn-pop-trt-tr-zsyrup",
+              categoryOptionCombo: "age-unknown-sex-male",
+              period: monthPeriod,
+              mapping: function(value, row) {
+                var variables = getRowVariables(row);
+                var male = variables['pcn-pop-trt-tr-zsyrup-male'];
+                var all = variables['pcn-pop-trt-tr-zsyrup-all'];
+                if (male > 0) {
+                  return male;
+                }
+              }
+            },
+            {
+              column: "U",
+              dataElement: "pcn-pop-trt-tr-zsyrup",
+              categoryOptionCombo: "age-unknown-sex-unknown",
+              period: monthPeriod,
+              mapping: function(value, row) {
+                var variables = getRowVariables(row);
+                var female = variables['pcn-pop-trt-tr-zsyrup-female'];
+                var male = variables['pcn-pop-trt-tr-zsyrup-male'];
+                var all = variables['pcn-pop-trt-tr-zsyrup-all'];
+                if (male <= 0 && female <= 0) {
+                  return all;
+                } else {
+                  return 0;
+                }
+              }
+            },
+
+            // Antib. - Az Oral 
             {
               column: "V",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "pcnd-int-teo-age-unknown-sex-female" //female
+              variable: "pcn-pop-trt-tr-teo-female",
+              mapping: function(value, row) {
+                parseInt(value, 10);
+              }
             },
             {
               column: "W",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "pcnd-int-teo-age-unknown-sex-male" //male
+              variable: "pcn-pop-trt-tr-teo-male",
+              mapping: function(value, row) {
+                parseInt(value, 10);
+              }
             },
             {
               column: "X",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "pcnd-int-teo-age-unknown-sex-unknown", //unknown
+              variable: "pcn-pop-trt-tr-teo-all",
               mapping: function(value, row) {
-                if (!rowElementValue(row, "pcn-pop-trt", "pcnd-int-teo-age-unknown-sex-female") &&
-                   !rowElementValue(row, "pcn-pop-trt", "pcnd-int-teo-age-unknown-sex-male")) {
-                  return value;
-                }
+                parseInt(value, 10);
               }
             },
-            // Antib. - Az Drops 
             {
               column: "V",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "pcnd-int-az-drops-age-unknown-sex-female"
+              dataElement: "pcn-pop-trt-tr-teo",
+              categoryOptionCombo: "age-unknown-sex-female",
+              period: monthPeriod,
+              mapping: function(value, row) {
+                var variables = getRowVariables(row);
+                var female = variables['pcn-pop-trt-tr-teo-female'];
+                var all = variables['pcn-pop-trt-tr-teo-all'];
+                if (female > 0) {
+                  return female;
+                }
+              }
             },
             {
               column: "W",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "pcnd-int-az-drops-age-unknown-sex-male"
-            },
-            {
-              column: "X",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "pcnd-int-az-drops-age-unknown-sex-unknown",
+              dataElement: "pcn-pop-trt-tr-teo",
+              categoryOptionCombo: "age-unknown-sex-male",
+              period: monthPeriod,
               mapping: function(value, row) {
-                if (!rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-drops-age-unknown-sex-female") &&
-                   !rowElementValue(row, "pcn-pop-trt", "pcnd-int-az-drops-age-unknown-sex-male")) {
-                  return value;
+                var variables = getRowVariables(row);
+                var male = variables['pcn-pop-trt-tr-teo-male'];
+                var all = variables['pcn-pop-trt-tr-teo-all'];
+                if (male > 0) {
+                  return male;
                 }
               }
             },
+            {
+              column: "X",
+              dataElement: "pcn-pop-trt-tr-teo",
+              categoryOptionCombo: "age-unknown-sex-unknown",
+              period: monthPeriod,
+              mapping: function(value, row) {
+                var variables = getRowVariables(row);
+                var female = variables['pcn-pop-trt-tr-teo-female'];
+                var male = variables['pcn-pop-trt-tr-teo-male'];
+                var all = variables['pcn-pop-trt-tr-teo-all'];
+                if (male <= 0 && female <= 0) {
+                  return all;
+                } else {
+                  return 0;
+                }
+              }
+            },
+
             // Facial Cleanliness
             {
               column: "AD",
@@ -323,97 +534,109 @@ module.exports = function(_params) {
       },
 
       // Zithromax Application
-      {
-        names: [/5-\d{4} Zithr/],
-        startRow: 9,
-        row: {
-          invariants: {
-            period: function(row) {
-              return params.period + 2;
-            },
-            orgUnit: findOrg,
-          },
-          mappings: [
-            {
-              column: "A",
-              variable: "zone",
-              orgUnit: null
-            },
-            {
-              column: "B",
-              variable: "region",
-              orgUnit: null
-            },
-            {
-              column: "C",
-              variable: "woreda",
-              orgUnit: null
-            },
-            {
-              column: "D",
-              variable: "geoconnectID",
-              orgUnit: null
-            },
-            {
-              column: "K",
-              dataElement: "yD4patF6TMc"
-            },
-            {
-              column: "L",
-              dataElement: "XpXE3AYoW4V",
-              mapping: function(value) {
-                return Math.floor(value);
-              }
-            },
-            {
-              column: "M",
-              dataElement: "qXfluft9WvF"
-            },
-            {
-              column: "N",
-              dataElement: "pcn-pcdate",
-              mapping: function(value) {
-                for (var i = 0; i < month_names_short.length; i++) {
-                  if (hasText(value, month_names_short[i]), true) {
-                    return i + 1;
-                  }
-                }
-              }
-            },
-            {
-              column: "O",
-              dataElement: "HDIz3YLsw73",
-              mapping: function(value) {
-                if (hasText(value, "yes", true)) return "true";
-                if (hasText(value, "no", true)) return "false";
-              }
-            },
-            {
-              column: "P",
-              dataElement: "dEFippgWHZi"
-            },
-            {
-              column: "Q",
-              dataElement: "fY74mfHG6Xr"
-            },
-            {
-              column: "R",
-              dataElement: "QZpTVwpsbw1",
-              mapping: function(value) {
-                for (var i = 0; i < month_names_short.length; i++) {
-                  if (hasText(value, month_names_short[i]), true) {
-                    return i + 1;
-                  }
-                }
-              }
-            }
-          ]
-        }
-      }
+      // {
+      //   names: [/5-\d{4} Zithr/],
+      //   startRow: 9,
+      //   row: {
+      //     invariants: {
+      //       period: function(row) {
+      //         return params.period + 2;
+      //       },
+      //       orgUnit: findOrg,
+      //     },
+      //     mappings: [
+      //       {
+      //         column: "A",
+      //         variable: "zone",
+      //         orgUnit: null
+      //       },
+      //       {
+      //         column: "B",
+      //         variable: "region",
+      //         orgUnit: null
+      //       },
+      //       {
+      //         column: "C",
+      //         variable: "woreda",
+      //         orgUnit: null
+      //       },
+      //       {
+      //         column: "D",
+      //         variable: "geoconnectID",
+      //         orgUnit: null
+      //       },
+      //       {
+      //         column: "K",
+      //         dataElement: "yD4patF6TMc"
+      //       },
+      //       {
+      //         column: "L",
+      //         dataElement: "XpXE3AYoW4V",
+      //         mapping: function(value) {
+      //           return Math.floor(value);
+      //         }
+      //       },
+      //       {
+      //         column: "M",
+      //         dataElement: "qXfluft9WvF"
+      //       },
+      //       {
+      //         column: "N",
+      //         dataElement: "pcn-pcdate",
+      //         mapping: function(value) {
+      //           for (var i = 0; i < month_names_short.length; i++) {
+      //             if (hasText(value, month_names_short[i]), true) {
+      //               return i + 1;
+      //             }
+      //           }
+      //         }
+      //       },
+      //       {
+      //         column: "O",
+      //         dataElement: "HDIz3YLsw73",
+      //         mapping: function(value) {
+      //           if (hasText(value, "yes", true)) return "true";
+      //           if (hasText(value, "no", true)) return "false";
+      //         }
+      //       },
+      //       {
+      //         column: "P",
+      //         dataElement: "dEFippgWHZi"
+      //       },
+      //       {
+      //         column: "Q",
+      //         dataElement: "fY74mfHG6Xr"
+      //       },
+      //       {
+      //         column: "R",
+      //         dataElement: "QZpTVwpsbw1",
+      //         mapping: function(value) {
+      //           for (var i = 0; i < month_names_short.length; i++) {
+      //             if (hasText(value, month_names_short[i]), true) {
+      //               return i + 1;
+      //             }
+      //           }
+      //         }
+      //       }
+      //     ]
+      //   }
+      // }
     ]
   }
 
   // Helper Funtions:
+
+  function monthPeriod(row, data) {
+    var variables = getRowVariables(row);
+    var year = variables['year'];
+    var mdamonth = variables['mdamonth'];
+    if (mdamonth < 10) {mdamonth = "0" + mdamonth}
+    if (mdamonth)
+      return "" + year + mdamonth;
+    else
+      return "" + year + "12";
+  }
+
   function findOrg(row) {
     var variables = getRowVariables(row);
     var org = null;

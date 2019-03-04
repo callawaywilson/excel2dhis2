@@ -25,12 +25,20 @@ var orgTree = require('./orgunittree.js')(orgUnits, {
   rootOrgId: 'iuGjpnxnFbI'
 });
 
+// Global Data Values, keep all data values here for lookup
+var dataValues = [];
+
+// Global Variables, assigned global variables here
+var globalVariables = {};
+
 // Load parser, the logic structure that drives the data transform
 var parser = require('./' + (argv['p'] || argv['parser']))({
   period: (argv['t'] || argv['period']),
   orgUnits: orgUnits,
-  orgTree: orgTree
+  orgTree: orgTree,
+  dataValues: dataValues
 });
+
 
 // Run the parser sheets on the appropriate workbook sheets
 var mappedValues = {};
@@ -102,6 +110,8 @@ function parseSheet(parserSheet, sheet) {
       data = data.concat(rowData.filter(function(d) {
         return d && d.dataElement && !empty(d.value);
       }));
+      // Push to be available on global dataValues
+      dataValues.push(data);
     }
     return {"dataValues": data}
   } else {
@@ -183,9 +193,14 @@ function applyRowData(mapping, parserRow, rowData, cellData) {
 
   // Apply value
   if (mapping.mapping) {
-    data.value = mapping.mapping(cellData.v, rowData);
+    data.value = mapping.mapping(cellData.v, rowData, globalVariables);
   } else {
     data.value = cellData.v;
+  }
+
+  // If is a globalVariable, assign:
+  if (mapping.applyGlobalVariables) {
+    mapping.applyGlobalVariables(data.value, rowData, globalVariables);
   }
 
   return data;

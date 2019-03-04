@@ -17,7 +17,7 @@ end
 puts "Password for #{options[:user]}: "
 options[:pass] = STDIN.noecho(&:gets).chomp
 
-host = "https://#{options[:user]}:#{options[:pass]}@#{options[:host]}"
+host = "http://#{options[:user]}:#{options[:pass]}@#{options[:host]}"
 
 attributes = JSON.parse RestClient.get("#{host}/api/29/attributes.json", {accept: :json})
 @ntdcode_id = attributes["attributes"].find{|a| a['displayName'] == 'NTDCode'}['id']
@@ -35,6 +35,7 @@ def set_ntdcode! obj, value
   obj['attributeValues'] = [] if obj['attributeValues'].nil?
   obj['attributeValues'].delete_if{|v| v['attribute']['id'] == @ntdcode_id}
   obj['attributeValues'] << {"value" => value, "attribute" => {"id" => @ntdcode_id}}
+  obj['code'] = value
   return obj
 end
 

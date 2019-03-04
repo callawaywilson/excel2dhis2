@@ -15,8 +15,8 @@ module.exports = function(_params) {
     params: params,
     definition: {
       defaults: {
-        categoryOptionCombo: "HllvX50cXC0",
-        attributeOptionCombo: "HllvX50cXC0",
+        categoryOptionCombo: "default",
+        attributeOptionCombo: "default",
       }
     },
     sheets: [
@@ -55,19 +55,25 @@ module.exports = function(_params) {
             },
             {
               column: "F",
-              dataElement: "fwocIchmkBs"
+              dataElement: "trch-survey-year-prevalence"
             },
             {
               column: "G",
-              dataElement: "iB2QByaVoiB"
+              dataElement: "trch-tf-pct",
+              mapping: function(value, row) {
+                return Math.floor(value)
+              }
             },
             {
               column: "H",
-              dataElement: "L36uJKin4xW"
+              dataElement: "trch-tt-pct",
+              mapping: function(value, row) {
+                return Math.floor(value)
+              }
             },
             {
               column: "I",
-              dataElement: "tYEOhAimtsQ",
+              dataElement: "trch-tt-age",
               mapping: function(value, row) {
                 if (/(\d+)/.test(value))
                   return /(\d+)/.exec(value)[1]
@@ -75,7 +81,7 @@ module.exports = function(_params) {
             },
             {
               column: "I",
-              dataElement: "mPMdsgLyqev",
+              dataElement: "trch-tt-sex",
               mapping: function(value, row) {
                 var sex = "";
                 if (/Female/i.test(value)) sex += 'f';
@@ -85,100 +91,128 @@ module.exports = function(_params) {
             },
             {
               column: "J",
-              dataElement: "vbohuRxSxDE"
+              dataElement: "trch-tt-survey-source"
             },
 
-            // January - June Operations
+            // January - June Operations (apply to June)
             {
               column: "K",
-              variable: "janJunSurgeries"
+              dataElement: "trch-persons-operated",
+              categoryOptionCombo: "sex-unknown",
+              period: function(value, row) {
+                return params.period + "06";
+              }
             },
-            // July - December Operations, add to januaryJuneOperations
+            // July - December Operations (apply to December)
             {
               column: "L",
-              dataElement: "d7TTTQDQSEL",
-              categoryOptionCombo: "lEVjKC9kDQs",
-              mapping: function(value, row) {
-                var janJune = getRowVariables(row)['janJunSurgeries'];
-                return (janJune || 0) + (value ||  0);
+              dataElement: "trch-persons-operated",
+              categoryOptionCombo: "sex-unknown",
+              period: function(value, row) {
+                return params.period + "12";
               }
             },
 
             // Month of MDA
             {
               column: "N",
-              dataElement: "wjJTQ33NCbj",
+              variable: 'year',
+              mapping: function() {return params.period;}
+            },
+            {
+              column: "N",
+              variable: "mdamonth",
               mapping: function(value) {
                 if (value) {
                   for (var i = 0; i < month_names.length; i++) {
                     if (month_names[i] == value || month_names_short[i] == value) {
-                      var month = (i < 9 ? '0' : '') + (i + 1)
-                      return params.period + "-" + month + "-01"
+                      return i + 1;
                     }
                   }
                 }
               }
             },
 
+            // Persons targeted for trachoma treatment
+            {
+              column: "M",
+              dataElement: "pcn-pop-trgt-tr",
+              categoryOptionCombo: "age-unknown-sex-unknown",
+              period: monthPeriod,
+              mapping: function(value, row) {
+                return Math.floor(value);
+              }
+            },
+
+
             // Antib. - Az tabs 
             {
               column: "O",
-              variable: "azTabsJanJune"
+              dataElement: "pcn-pop-trt-tr-ztabs",
+              categoryOptionCombo: "age-unknown-sex-unknown",
+              period: function(value, row) {
+                return params.period + "06";
+              }
             },
             {
               column: "P",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "uE0CxADyNck",
-              mapping: function(value, row) {
-                var janJune = getRowVariables(row)['azTabsJanJune'];
-                return (janJune || 0) + (value || 0);
+              dataElement: "pcn-pop-trt-tr-ztabs",
+              categoryOptionCombo: "age-unknown-sex-unknown",
+              period: function(value, row) {
+                return params.period + "12";
               }
             },
 
             // Antib. - Az Oral
             {
               column: "Q",
-              variable: "oralJanJune"
+              dataElement: "pcn-pop-trt-tr-zsyrup",
+              categoryOptionCombo: "age-unknown-sex-unknown",
+              period: function(value, row) {
+                return params.period + "06";
+              }
             },
             {
               column: "R",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "VDJkgG8WuMr",
-              mapping: function(value, row) {
-                var janJune = getRowVariables(row)['oralJanJune'];
-                return (janJune || 0) + (value || 0);
+              dataElement: "pcn-pop-trt-tr-zsyrup",
+              categoryOptionCombo: "age-unknown-sex-unknown",
+              period: function(value, row) {
+                return params.period + "12";
               }
             },
 
             // Antib. - Tet Oin
             {
               column: "S",
-              variable: "tetOinJanJune"
+              dataElement: "pcn-pop-trt-tr-teo",
+              categoryOptionCombo: "age-unknown-sex-unknown",
+              period: function(value, row) {
+                return params.period + "06";
+              }
             },
             {
               column: "T",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "VnTPvQznpOf",
-              mapping: function(value, row) {
-                var janJune = getRowVariables(row)['tetOinJanJune'];
-                return (janJune || 0) + (value || 0);
+              dataElement: "pcn-pop-trt-tr-teo",
+              categoryOptionCombo: "age-unknown-sex-unknown",
+              period: function(value, row) {
+                return params.period + "12";
               }
             },
 
-            // Antib. - Az Drops 
-            {
-              column: "U",
-              variable: "azDropsJanJune"
-            },
-            {
-              column: "V",
-              dataElement: "pcn-pop-trt",
-              categoryOptionCombo: "lmiSrZd1dDJ",
-              mapping: function(value, row) {
-                var janJune = getRowVariables(row)['azDropsJanJune'];
-                return (janJune || 0) + (value || 0);
-              }
-            },
+            // Antib. - Az Drops - Not used in ETH
+            // {
+            //   column: "U",
+            //   variable: "azDropsJanJune"
+            // },
+            // {
+            //   column: "V",
+            //   dataElement: "pcn-pop-trt",
+            //   categoryOptionCombo: "lmiSrZd1dDJ",
+            //   mapping: function(value, row) {
+            //     var janJune = getRowVariables(row)['azDropsJanJune'];
+            //     return (janJune || 0) + (value || 0);
+            //   }
+            // },
 
             // Facial Cleanliness
             {
@@ -303,6 +337,14 @@ module.exports = function(_params) {
       },
       
     ]
+  }
+
+  function monthPeriod(row, data) {
+    var variables = getRowVariables(row);
+    var year = variables['year'];
+    var mdamonth = variables['mdamonth'];
+    if (mdamonth < 10) {mdamonth = "0" + mdamonth}
+    return "" + year + mdamonth;
   }
 
   // Helper Funtions:
