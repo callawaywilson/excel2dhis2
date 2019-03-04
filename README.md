@@ -346,3 +346,33 @@ if SCH > None
   end
 end
 
+#### MDA1
+
+if (LF > 0)
+
+if (Oncho > 0)
+
+if (STH > 0)
+
+#### MDA2
+
+if (LF > 0)
+
+if (STH > 0)
+
+#### MDA3
+
+If (Oncho > 0)
+
+#### T1
+
+if (STH > 0)
+
+if (SCH > 0)
+
+#### T2
+
+IF (SCH > 0)
+
+
+
