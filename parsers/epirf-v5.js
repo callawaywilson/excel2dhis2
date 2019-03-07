@@ -2,8 +2,6 @@ module.exports = function(_params) {
 
   let moment = require('moment');
 
-  console.log(_params.period)
-
   let params = Object.assign({
     period: null,
     orgUnits: null,
