@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "minimist": "^1.2.3",
-    "xlsx": "^0.12.6",
+    "xlsx": "^0.17.0",
     "fs-path": "^0.0.25",
     "moment": "^2.22.1"
   }
